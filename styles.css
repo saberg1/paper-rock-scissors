@@ -1,0 +1,43 @@
+* {
+  border: 2px red solid;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+.main-section {    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.gameboard-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gamebox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  width: 6rem;
+}
+
+.avatar {
+  height: 4rem;
+  width: 4rem;
+}
