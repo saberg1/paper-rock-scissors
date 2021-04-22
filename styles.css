@@ -41,3 +41,12 @@ aside {
   height: 4rem;
   width: 4rem;
 }
+
+.game-token {
+  height: 4rem;
+  width: 4rem;
+}
+
+.classic-section {
+  display: flex;
+}
