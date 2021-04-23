@@ -17,6 +17,11 @@ body {
   height: 100vh;
 }
 
+.classic-section,
+.winner-section {
+  display: flex;
+}
+
 .gameboard-section{
   display: flex;
   flex-direction: column;
@@ -45,8 +50,4 @@ aside {
 .game-token {
   height: 4rem;
   width: 4rem;
-}
-
-.classic-section {
-  display: flex;
 }
