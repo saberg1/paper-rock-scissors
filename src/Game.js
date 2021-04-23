@@ -31,42 +31,19 @@ class Game {
   }
 
   fightTheGame(event) {
-    if(event.target.id === 'rockAvatar'){
-      //invoke function to randomize click from computer
-      //then have it check for a winner
-      //once winner is found, renderWinner() with a
-      game.human.takeTurn()
-    }
-    if(event.target.id === 'paperAvatar'){
-      console.log('you clicked paper')
-    }
-    if(event.target.id === 'scissorAvatar'){
-      console.log('you clicked scissor')
-    }
-    if(event.target.id === 'fighter1Avatar'){
-      console.log('you clicked fighter1')
-    }
-    if(event.target.id === 'fighter2Avatar'){
-      console.log('you clicked fighter2')
-    }
+    // debugger
+    var avatarArr = ['rockAvatar','paperAvatar','scissorAvatar', 'fighter1Avatar', 'fighter2Avatar']
+    
+    console.log(avatarArr[event.target.id]) //human
+    console.log(avatarArr[game.computer.takeTurn()]) //computer random
+    //function to determine if equal/or different to decide winner
+    // then
   }
-  // switchFunction() {
-  //   switch(expression) {
-  //     case 0:
-        // first code block
-  //         break;
-  //     case 1:
-         // second code block
-  //         break;
-  //     case 2: 
-         // third code block
-  //         break;
-  //     case 3:
-         // fourth code block
-  //         break;
-  //   }
-  // }
-
+  //invoke function to randomize click from computer
+  //then have it check for a winner
+  //once winner is found, renderWinner() with a
+  //condtional for classic = 3/ difficult = 5
+  //conditional variable assignment
   checkWinner(){
     //a way to check game boards win
     //if statements to determine who winner is

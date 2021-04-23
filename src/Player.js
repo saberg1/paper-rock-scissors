@@ -3,6 +3,7 @@ class Player {
     this.player = player;
     this.token = token;
     this.wins = 0;
+    this.isComputer = player === 'computer' ? true : false 
   }
 
   saveWinsToStorage() {
@@ -13,10 +14,11 @@ class Player {
     //pull/return wins from localstorage
   }
 
-  takeTurn(){
-    //randomize a click between the avaialable options
-    //what to put here?
-    console.log('rawr')
+  takeTurn(num){
+    var num = game.type == 'Difficult' ? 5 : 3
+    if(this.isComputer){
+      return getRandomInt(num)
+    } 
   }
   
   updateWins(){

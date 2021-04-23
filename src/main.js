@@ -53,9 +53,9 @@ function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
     <section class="classic-section" id="classicSection">
-      <div class='game-token game-avatar' id='rockAvatar'>rock</div>
-      <div class='game-token paper-avatar' id='paperAvatar'>paper</div>
-      <div class='game-token scissor-avatar' id='scissorAvatar'>scissor</div>
+      <div class='game-token game-avatar' id='0'>rock</div>
+      <div class='game-token paper-avatar' id='1'>paper</div>
+      <div class='game-token scissor-avatar' id='2'>scissor</div>
     </section>
     `
 }
@@ -64,11 +64,11 @@ function renderDifficultGame() {
   mainSection.innerHTML = `
   <p>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
-    <div class='game-token game-avatar' id='rockAvatar'>rock</div>
-    <div class='game-token paper-avatar' id='paperAvatar'>paper</div>
-    <div class='game-token scissor-avatar' id='scissorAvatar'>scissor</div>
-    <div class='game-token happy-alien-avatar' id='fighter1Avatar'>fighter</div>
-    <div class='game-token happy-lizard-avatar' id='fighter2Avatar'>fighter2</div>
+    <div class='game-token game-avatar' id='0'>rock</div>
+    <div class='game-token paper-avatar' id='1'>paper</div>
+    <div class='game-token scissor-avatar' id='2'>scissor</div>
+    <div class='game-token happy-alien-avatar' id='3'>fighter</div>
+    <div class='game-token happy-lizard-avatar' id='4'>fighter2</div>
   </section>
   `
 }
@@ -128,6 +128,6 @@ function createGame(){
   
 }
 
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-};
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
