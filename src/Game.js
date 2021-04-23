@@ -32,7 +32,10 @@ class Game {
 
   fightTheGame(event) {
     if(event.target.id === 'rockAvatar'){
-      console.log('you clicked rock')
+      //invoke function to randomize click from computer
+      //then have it check for a winner
+      //once winner is found, renderWinner() with a
+      game.human.takeTurn()
     }
     if(event.target.id === 'paperAvatar'){
       console.log('you clicked paper')
@@ -66,5 +69,7 @@ class Game {
 
   checkWinner(){
     //a way to check game boards win
+    //if statements to determine who winner is
+    //once winner is declared invoke updateWins() on player
   }
 }

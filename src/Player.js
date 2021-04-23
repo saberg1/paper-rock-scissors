@@ -14,7 +14,9 @@ class Player {
   }
 
   takeTurn(){
-    
+    //randomize a click between the avaialable options
+    //what to put here?
+    console.log('rawr')
   }
   
   updateWins(){
