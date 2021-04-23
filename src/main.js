@@ -9,7 +9,7 @@ var mainSection = document.getElementById('mainSection')
 var leftAsideDiv = document.getElementById('leftAsideDiv')
 
 //Event Listeners
-mainSection.addEventListener('click', function(){
+mainSection.addEventListener('click', function() {
   clicker(event)
 })
 leftAsideDiv.addEventListener('click', renderMainPage)
@@ -20,7 +20,7 @@ window.addEventListener('load', loadPage)
 //pastGame boolean to invoke renderGameBtn() inside Game class
 
 //Event Handlers
-function loadPage(){
+function loadPage() {
   // updateWinCount(num)
   // console.log('rawr')
   renderMainPage()
@@ -30,7 +30,15 @@ function loadPage(){
   // renderChangeGameBtn()
 }
 
-function renderMainPage(){
+function clicker(event) {
+  // debugger
+  startClassicGame(event)
+  startDifficultGame(event)
+  fightGame(event)
+  // fightClassicGame(event)
+}
+
+function renderMainPage() {
   mainSection.innerHTML = `        
     <section class="front-page-section" id="frontPageSection">
       <p>Choose your game!</p>
@@ -42,7 +50,7 @@ function renderMainPage(){
   updateWinCount(2)
 }
 
-function renderClassicGame(){
+function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
     <section class="classic-section" id="classicSection">
@@ -53,7 +61,7 @@ function renderClassicGame(){
     `
 }
 
-function renderDifficultGame(){
+function renderDifficultGame() {
   mainSection.innerHTML = `
   <p>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
@@ -66,7 +74,7 @@ function renderDifficultGame(){
   `
 }
 
-function renderWinner(winner){
+function renderWinner(winner) {
   var winner = 'this is a long strring'
   //remove winner variable and replace parameter for this function
   mainSection.innerHTML = `
@@ -78,34 +86,49 @@ function renderWinner(winner){
   `
 }
 
-function updateWinCount(num){
+function updateWinCount(num) {
   humanWins.innerText = num
 }
 
-function renderChangeGameBtn(){
+function renderChangeGameBtn() {
   leftAsidediv.innerHTML = `
   <button type="button"></button>
   `
 }
 
-function clicker(event){
-  startClassicGame(event)
-  startDifficultGame(event)
-
-}
-
-function startClassicGame(event){
+function startClassicGame(event) {
+  // debugger
   if(event.target.id === 'classicDiv'){
     console.log('clicked classic game')
     renderClassicGame()
     renderChangeGameBtn()
+    createGame()
+    game.type = 'Classic'
+    // game.gameType(event)
   }
 }
 
-function startDifficultGame(event){
+function startDifficultGame(event) {
   if(event.target.id === 'difficultDiv'){
     console.log('clicked difficult game')
     renderDifficultGame()
     renderChangeGameBtn()
+    createGame()
+    game.type = 'Difficult'
+    // game.gameType(event)
   }
 }
+
+function fightGame(event) {
+  game.human.fightClassicGame(event)
+}
+
+function createGame(){
+  // if(game === undefined){
+  game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
+  
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+};
