@@ -3,18 +3,33 @@ var mainSection = document.getElementById('mainSection')
 var humanWins = document.getElementById('humanWins')
 var computerWins = document.getElementById('computerWins')
 var leftAsidediv = document.getElementById('leftAsideDiv')
-//
+
+var mainSection = document.getElementById('mainSection')
+
+var leftAsideDiv = document.getElementById('leftAsideDiv')
+
+//Event Listeners
+mainSection.addEventListener('click', function(){
+  clicker(event)
+})
+leftAsideDiv.addEventListener('click', function(){
+  console.log('left side div')
+})
 window.addEventListener('load', loadPage)
 //on page load, it will create new instance of Game? 
 //new game will hold wins, and those will reflect/update updateWinCount(num)
 //should that updateWinCount(num) live in
+//pastGame boolean to invoke renderGameBtn() inside Game class
+
+//Event Handlers
 function loadPage(){
   // updateWinCount(num)
   // console.log('rawr')
-  // renderMainPage()
+  renderMainPage()
   // renderClassicGame()
   // renderWinner()
   // renderDifficultGame()
+  // renderChangeGameBtn()
 }
 
 function renderMainPage(){
@@ -70,6 +85,28 @@ function updateWinCount(num){
 
 function renderChangeGameBtn(){
   leftAsidediv.innerHTML = `
-  
+  <button type="button"></button>
   `
+}
+
+function clicker(event){
+  startClassicGame(event)
+  startDifficultGame(event)
+
+}
+
+function startClassicGame(event){
+  if(event.target.id === 'classicDiv'){
+    console.log('clicked classic game')
+    renderClassicGame()
+    renderChangeGameBtn()
+  }
+}
+
+function startDifficultGame(event){
+  if(event.target.id === 'difficultDiv'){
+    console.log('clicked difficult game')
+    renderDifficultGame()
+    renderChangeGameBtn()
+  }
 }
