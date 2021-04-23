@@ -12,9 +12,7 @@ var leftAsideDiv = document.getElementById('leftAsideDiv')
 mainSection.addEventListener('click', function(){
   clicker(event)
 })
-leftAsideDiv.addEventListener('click', function(){
-  console.log('left side div')
-})
+leftAsideDiv.addEventListener('click', renderMainPage)
 window.addEventListener('load', loadPage)
 //on page load, it will create new instance of Game? 
 //new game will hold wins, and those will reflect/update updateWinCount(num)
@@ -40,6 +38,7 @@ function renderMainPage(){
       <div class='difficult-div gamebox' id='difficultDiv'>DIFFICULT</div>
     </section>
     `
+  leftAsidediv.innerHTML = ""
   updateWinCount(2)
 }
 
