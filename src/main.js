@@ -14,7 +14,6 @@ mainSection.addEventListener('click', function() {
 })
 leftAsideDiv.addEventListener('click', renderMainPage)
 window.addEventListener('load', loadPage)
-//on page load, it will create new instance of Game? 
 //new game will hold wins, and those will reflect/update updateWinCount(num)
 //should that updateWinCount(num) live in
 //pastGame boolean to invoke renderGameBtn() inside Game class
@@ -120,7 +119,7 @@ function startDifficultGame(event) {
 }
 
 function fightGame(event) {
-  game.human.fightClassicGame(event)
+  game.fightTheGame(event)
 }
 
 function createGame(){

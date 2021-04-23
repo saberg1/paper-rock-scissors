@@ -6,33 +6,18 @@ class Player {
   }
 
   saveWinsToStorage() {
-
+    //save wins to localstorage
   }
 
   retrieveWinsFromStorage() {
-
+    //pull/return wins from localstorage
   }
 
   takeTurn(){
-
-  }
-
-  fightClassicGame(event) {
-    if(event.target.id === 'rockAvatar'){
-      console.log('you clicked rock')
-    }
-    if(event.target.id === 'paperAvatar'){
-      console.log('you clicked paper')
-    }
-    if(event.target.id === 'scissorAvatar'){
-      console.log('you clicked scissor')
-    }
-    if(event.target.id === 'fighter1Avatar'){
-      console.log('you clicked fighter1')
-    }
-    if(event.target.id === 'fighter2Avatar'){
-      console.log('you clicked fighter2')
-    }
+    
   }
   
+  updateWins(){
+    this.wins++
+  }
 }
