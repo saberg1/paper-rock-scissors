@@ -18,11 +18,16 @@ body {
 }
 
 .classic-section,
-.winner-section {
+.winner-section,
+.difficult-section {
   display: flex;
 }
 
-.gameboard-section{
+/* .difficult-section {
+}
+*/
+
+.front-page-section{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +37,17 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.left-aside-div {
+  /* display: flex; */
+  width: 100%;
+  height: 2rem;
+}
+
+button {
+  width: 90%;
+  height: 100%;
 }
 
 .gamebox {
