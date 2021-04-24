@@ -4,7 +4,7 @@ class Game {
     this.computer = player.computer;
     this.type = null;
     this.players = [];// do i still need this array?
-    this.avatars = ['rockAvatar','paperAvatar','scissorAvatar', 'fighter1Avatar', 'fighter2Avatar'];
+    this.avatars = ['rock','paper','scissor', 'fighter1', 'fighter2'];
     this.rules = {
       rock: { scissors: 'wins', paper: 'loses' },
       paper: { scissors: 'loses', rock: 'wins' },
@@ -13,35 +13,43 @@ class Game {
       // fighter2: {}
     }
   }
+  
   checkWinner(human, computer){
-    // console.log('human choice: ', human);
-    // console.log('computer choice: ', computer);
-    // if(human === computer){
-    //   renderDraw(human, computer)
-    // }
-    var humanChoice = this.avatars.indexOf(human)
-    var computerChoice = this.avatars.indexOf(computer)
-    console.log('checkwinner() humanChoice: ', humanChoice);
-    console.log('checkwinner() computerChoice: ', computerChoice);
-    if(humanChoice === computerChoice){
-      console.log('tie');
+    // console.log(human)
+    console.log('test1')
+    if (human == computer){
+      console.log('tie')
     }
-    else if (humanChoice == this.avatars.length - 1 && computerChoice == 0) {
-      // console.log(game.human);
-      console.log('first if statment human won');
+    if (human === "paper") {
+      console.log('test2');
+      if (computer === "rock") {
+        console.log('test3');
+        console.log('human paper wins');
+      } else {
+          if (computer === "scissors") {
+            console.log('test4');
+            console.log("computer scissors wins")
+          }
+      }
+    if (human === "scissors") {
+      if (computer === "rock") {
+        console.log("computer rock wins");
+        } else {
+          if (computer === "paper") {
+            console.log("human scissors wins");
+          }
+        }
+      }
+      if (human === "rock") {
+        if (computer === "paper") {
+          console.log("computer paper wins");
+          } else {
+            if (computer === "scissors") {
+              console.log("human rock wins");
+            }
+          }
+        }
     }
-    else if(computerChoice == this.avatars.length - 1 && humanChoice == 0) {
-      // console.log(game.computer)
-      console.log('first if statment computer won');
-    }
-    else if(humanChoice > computerChoice) {
-      // console.log(game.computer)
-      console.log('second if computer won');
-    } 
-    // else {
-    //   // console.log(game.human)
-    //   console.log('second if human won');
-    // }
   }
 
   gameType(event){
@@ -64,8 +72,8 @@ class Game {
     var humanChoice = this.avatars[event.target.id] //human
     var computerChoice = this.avatars[game.computer.takeTurn()] //computer random
     // if(event.target.id === 'classicSection'){
-      console.log('fightTheGame() humanChoice: ', humanChoice);
-      console.log('fightTheGame() computerChoice: ', computerChoice);
+      // console.log('fightTheGame() humanChoice: ', humanChoice);
+      // console.log('fightTheGame() computerChoice: ', computerChoice);
     this.checkWinner(humanChoice, computerChoice)
     // humanChoice, computerChoice
     //function to determine if equal/or different to decide winner
