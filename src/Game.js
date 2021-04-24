@@ -33,10 +33,10 @@ class Game {
   fightTheGame(event) {
     // debugger
     var avatarArr = ['rockAvatar','paperAvatar','scissorAvatar', 'fighter1Avatar', 'fighter2Avatar']
-    
-    var humanChoice = console.log(avatarArr[event.target.id]) //human
-    var computerChoice = console.log(avatarArr[game.computer.takeTurn()]) //computer random
-    this.checkWinner(humanChoice, computerChoice)
+    // console.log('test');
+    console.log(avatarArr[event.target.id]) //human
+    console.log(avatarArr[game.computer.takeTurn()]) //computer random
+    // this.checkWinner(humanChoice, computerChoice)
     //function to determine if equal/or different to decide winner
     // then
   }
