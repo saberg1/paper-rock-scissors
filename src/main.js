@@ -4,8 +4,6 @@ var humanWins = document.getElementById('humanWins')
 var computerWins = document.getElementById('computerWins')
 var leftAsidediv = document.getElementById('leftAsideDiv')
 
-var mainSection = document.getElementById('mainSection')
-
 var leftAsideDiv = document.getElementById('leftAsideDiv')
 
 //Event Listeners
@@ -87,6 +85,7 @@ function renderWinner(winner) {
 function renderDraw(human, computer) {
   // var winner = 'this is a long strring'
   //remove winner variable and replace parameter for this function
+  console.log('renderdraw function invoked');
   mainSection.innerHTML = `
   <p id='winnerTag'>It's a draw!</p>
   <section class="winner-section" id="winnerSection">
@@ -110,6 +109,7 @@ function renderChangeGameBtn() {
 function startClassicGame(event) {
   // debugger
   if(event.target.id === 'classicDiv'){
+    // console.log('startClassicGame event: ', event);
     console.log('clicked classic game')
     renderClassicGame()
     renderChangeGameBtn()
@@ -131,7 +131,11 @@ function startDifficultGame(event) {
 }
 
 function fightGame(event) {
+  if(event.target.id === '0' || '1' || '2'){
+  // console.log('fightGame() event: ',event)
+  console.log('fightGame() event.target.id: ',event.target.id);
   game.fightTheGame(event)
+  }
 }
 
 function createGame(){
