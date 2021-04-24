@@ -16,41 +16,38 @@ class Game {
   
   checkWinner(human, computer){
     // console.log(human)
-    console.log('test1')
+    // console.log('test1')
     if (human == computer){
       console.log('tie')
     }
+
     if (human === "paper") {
-      console.log('test2');
+      // console.log('test2');
       if (computer === "rock") {
-        console.log('test3');
+        // console.log('test3');
         console.log('human paper wins');
       } else {
-          if (computer === "scissors") {
-            console.log('test4');
-            console.log("computer scissors wins")
-          }
+          console.log("computer scissors wins")
+        }
       }
+    
     if (human === "scissors") {
       if (computer === "rock") {
         console.log("computer rock wins");
         } else {
-          if (computer === "paper") {
             console.log("human scissors wins");
-          }
         }
       }
-      if (human === "rock") {
-        if (computer === "paper") {
-          console.log("computer paper wins");
-          } else {
-            if (computer === "scissors") {
-              console.log("human rock wins");
-            }
-          }
+
+    if (human === "rock") {
+      if (computer === "paper") {
+        console.log("computer paper wins");
+        } else {
+            console.log("human rock wins");
         }
+      }
     }
-  }
+  
 
   gameType(event){
     this.type = event.target.id === 'classicDiv' ? 'Classic' : 'Difficult'
