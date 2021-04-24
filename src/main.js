@@ -77,13 +77,25 @@ function renderWinner(winner) {
   var winner = 'this is a long strring'
   //remove winner variable and replace parameter for this function
   mainSection.innerHTML = `
-  <p id='winnerTag'>${winner}</p>
+  <p id='winnerTag'>${winner} won this round!</p>
   <section class="winner-section" id="winnerSection">
     <div class='game-token winner-avatar' id='winnerAvatar'>winner</div>
     <div class='game-token loser-avatar' id='winnerAvatar'>loser</div>
   </section>
   `
 }
+function renderDraw(human, computer) {
+  // var winner = 'this is a long strring'
+  //remove winner variable and replace parameter for this function
+  mainSection.innerHTML = `
+  <p id='winnerTag'>It's a draw!</p>
+  <section class="winner-section" id="winnerSection">
+    <div class='game-token winner-avatar' id='winnerAvatar'>${human}</div>
+    <div class='game-token loser-avatar' id='winnerAvatar'>${computer}</div>
+  </section>
+  `
+}
+
 
 function updateWinCount(num) {
   humanWins.innerText = num
