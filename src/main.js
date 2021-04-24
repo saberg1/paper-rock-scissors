@@ -131,11 +131,11 @@ function startDifficultGame(event) {
 }
 
 function fightGame(event) {
-  if(event.target.id === '0' || '1' || '2'){
+  // if(event.target.id === '0' || '1' || '2'){
   // console.log('fightGame() event: ',event)
-  console.log('fightGame() event.target.id: ',event.target.id);
+  // console.log('fightGame() event.target.id: ',event.target.id);
   game.fightTheGame(event)
-  }
+  // }
 }
 
 function createGame(){
