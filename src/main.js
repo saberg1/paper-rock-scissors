@@ -85,9 +85,11 @@ function renderWinner(winner, loser) {
   <p id='winnerTag'>${winner} won this round!</p>
   <section class="winner-section" id="winnerSection">
     <div class='game-token winner-avatar' id='winnerAvatar'>
-    <img class='game-avatar'src='assets/${winner}.png'> 
+      <img class='game-token'src='assets/${winner}.png'> 
     </div>
-    <div class='game-token loser-avatar' id='winnerAvatar'>${loser}</div>
+    <div class='game-token loser-avatar' id='winnerAvatar'>
+      <img class='game-token'src='assets/${loser}.png'>
+    </div>
   </section>
   `
   setTimeout(game.resetBoard, 3000)
@@ -101,9 +103,11 @@ function renderDraw(human, computer) {
   <p id='winnerTag'>It's a draw!</p>
   <section class="winner-section" id="winnerSection">
     <div class='game-token winner-avatar' id='winnerAvatar'>
-    <img src='assets/scissor.png'> 
+      <img class='game-token'src='assets/${human}.png'>
     </div>
-    <div class='game-token loser-avatar' id='winnerAvatar'>${computer}</div>
+    <div class='game-token loser-avatar' id='winnerAvatar'>
+      <img class='game-token'src='assets/${computer}.png'>
+    </div>
   </section>
   `
   setTimeout(game.resetBoard, 3000)
