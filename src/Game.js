@@ -24,46 +24,50 @@ class Game {
 
   checkWinner(human, computer) {
     if (human === "paper") {
-      if (computer === "rock") {
+      if (computer === "rock" || "fighter2") {
         game.human.updateWins()
         renderWinner(human, computer)
-      } else if (computer === "scissor"){
+      } else if (computer === "scissor" || "fighter1"){
           game.computer.updateWins()
           renderWinner(computer, human)
         }
       }
     if (human === "scissor") {      
-      if (computer === "rock") {      
+      if (computer === "rock" || "fighter2") {      
         game.computer.updateWins() 
         renderWinner(computer, human)   
-        } else if (computer === "paper") {
+        } else if (computer === "paper" || "fighter1") {
             game.human.updateWins()
             renderWinner(human, computer)
         }
       }
     if (human === "rock") {
-      if (computer === "paper") {
+      if (computer === "paper" || "fighter2") {
         game.computer.updateWins()
         renderWinner(computer, human)
-        } else if (computer === "scissor") {
+        } else if (computer === "scissor" || "fighter1") {
             game.human.updateWins()
             renderWinner(human, computer)
         }
       }
-    // if (human === "rock") {
-    //   if (computer === "paper") {
-    //     console.log("computer paper wins");
-    //     } else if (computer === "scissor") {
-    //         console.log("human rock wins");
-    //     }
-    //   }
-    // if (human === "rock") {
-    //   if (computer === "paper") {
-    //     console.log("computer paper wins");
-    //     } else if (computer === "scissor") {
-    //         console.log("human rock wins");
-    //     }
-    //   }  
+    if (human === "fighter1") {
+      if (computer === "paper" || "fighter2") {
+        game.human.updateWins()
+        renderWinner(human, computer)
+        } else if (computer === "scissor" || "rock") {
+            game.computer.updateWins()
+            renderWinner(computer, human)
+        }
+      }
+    if (human === "fighter2") {
+      if (computer === "scissor" || "rock") {
+        game.human.updateWins()
+        renderWinner(human, computer)
+        } else if (computer === "fighter1" || 'paper') {
+            game.computer.updateWins()
+            renderWinner(computer, human)
+        }
+      }  
     // fighter1
     // figher2
     // console.log('human: ', human)
@@ -75,7 +79,8 @@ class Game {
   }
 
   resetBoard() {
-    this.type === 'Difficult' ? renderDifficultGame() : renderClassicGame()
+    // console.log(this.type)
+    game.type === 'Difficult' ? renderDifficultGame() : renderClassicGame()
   }
 
   fightTheGame(event) {
