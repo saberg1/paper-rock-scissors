@@ -1,3 +1,9 @@
+/*
+Lord Raiden vs Shang Tsung << human v computer
+Jax, Liu Kang, Mileena, Sonya Blade, Sub-Zero << rock,paper,scissors,extra1,extra2 lol
+*/
+
+
 //Query Selectors
 var mainSection = document.getElementById('mainSection')
 var humanWins = document.getElementById('humanWins')

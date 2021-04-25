@@ -7,12 +7,13 @@ class Player {
   }
 
   saveWinsToStorage() {
-    localStorage.setItem('humanWinStorage', this.wins)
-    localStorage.setItem('computerWinStorage', this.wins)
+    var humanWins = localStorage.setItem('humanWinStorage', game.human.wins)
+    // console.log('savedtosotrage log: ', this.wins)
+    var compWins = ocalStorage.setItem('computerWinStorage', game.computer.wins)
   }
 
   retrieveWinsFromStorage() {
-    //pull/return wins from localstorage
+    updateWinCount(huamnWin, compWin)
   }
 
   takeTurn(num){
@@ -24,6 +25,7 @@ class Player {
   
   updateWins(){
     this.wins++
+    this.saveWinsToStorage()
     // console.log('updateWins invoked: ', this.wins);
   }
 }
