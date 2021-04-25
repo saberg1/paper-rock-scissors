@@ -5,33 +5,28 @@ class Player {
     this.wins = 0;
     this.isComputer = player === 'computer' ? true : false 
   }
-
-  saveWinsToStorage() {
-    localStorage.setItem('gameStorage', JSON.stringify(game))
-    // localStorage.setItem('computerStorage', JSON.stringify(game.computer))
-    this.retrieveWinsFromStorage()
-    }
+  // saveWinsToStorage() {
+  //   localStorage.setItem('gameStorage', JSON.stringify(game))
+  //   // localStorage.setItem('computerStorage', JSON.stringify(game.computer))
+  //   this.retrieveWinsFromStorage()
+  //   }
   
-  retrieveWinsFromStorage() {
-    var stringStorage = localStorage.getItem('gameStorage');
-    var parsedStorage = JSON.parse(stringStorage)
-    updateWinCount()
-    return parsedStorage
+  // retrieveWinsFromStorage() {
+  //   var stringStorage = localStorage.getItem('gameStorage');
+  //   var parsedStorage = JSON.parse(stringStorage)
+  //   updateWinCount()
+  //   return parsedStorage
+  // }
+  saveWinsToStorage() {
+    localStorage.setItem('humanWinStorage', game.human.wins)
+    // console.log('savedtosotrage log: ', this.wins)
+    localStorage.setItem('computerWinStorage', game.computer.wins)
+    this.retrieveWinsFromStorage()
   }
 
-
-
-
-  // saveWinsToStorage() {
-  //   localStorage.setItem('humanWinStorage', game.human.wins)
-  //   // console.log('savedtosotrage log: ', this.wins)
-  //   localStorage.setItem('computerWinStorage', game.computer.wins)
-  //   this.retrieveWinsFromStorage()
-  // }
-
-  // retrieveWinsFromStorage() {
-  //   updateWinCount()
-  // }
+  retrieveWinsFromStorage() {
+    updateWinCount()
+  }
 
   takeTurn(num){
     var num = game.type == 'Difficult' ? 5 : 3
@@ -43,7 +38,5 @@ class Player {
   updateWins(){
     this.wins++
     this.saveWinsToStorage()
-    
-    // console.log('updateWins invoked: ', this.wins);
   }
 }

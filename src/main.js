@@ -79,16 +79,16 @@ function renderDifficultGame() {
   `
 }
 
-function renderWinner(winner) {
-  var winner = 'this is a long strring'
-  //remove winner variable and replace parameter for this function
+function renderWinner(winner, loser) {
+  // console.log(loser)
   mainSection.innerHTML = `
   <p id='winnerTag'>${winner} won this round!</p>
   <section class="winner-section" id="winnerSection">
-    <div class='game-token winner-avatar' id='winnerAvatar'>winner</div>
-    <div class='game-token loser-avatar' id='winnerAvatar'>loser</div>
+    <div class='game-token winner-avatar' id='winnerAvatar'>${winner}</div>
+    <div class='game-token loser-avatar' id='winnerAvatar'>${loser}</div>
   </section>
   `
+  setTimeout(game.resetBoard, 3000)
 }
 
 function renderDraw(human, computer) {
@@ -102,14 +102,23 @@ function renderDraw(human, computer) {
     <div class='game-token loser-avatar' id='winnerAvatar'>${computer}</div>
   </section>
   `
+  setTimeout(game.resetBoard, 3000)
 }
+
+// function updateWinCount() {
+//   // game.computer.updateWins()
+  
+//   var gameStorage = localStorage.getItem('gameStorage')
+//   humanWins.innerText = gameStorage.human.wins
+//   computerWins.innerText = gameStorage.computer.wins
+// }
 
 function updateWinCount() {
   // game.computer.updateWins()
   // game.computer.retrieveWinsFromStorage()
-  var gameStorage = localStorage.getItem('gameStorage')
-  humanWins.innerText = gameStorage.human.wins
-  computerWins.innerText = gameStorage.computer.wins
+  // localStorage.getItem('')
+  humanWins.innerText = localStorage.getItem('humanWinStorage')
+  computerWins.innerText = localStorage.getItem('computerWinStorage')
 }
 
 function renderChangeGameBtn() {
@@ -147,9 +156,8 @@ function fightGame(event) {
 }
 
 function createGame(){
-  // if(!game) {
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
-  // }
+  
 }
 
 function getRandomInt(max) {
