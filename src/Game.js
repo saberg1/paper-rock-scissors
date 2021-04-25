@@ -22,10 +22,6 @@ class Game {
   }
 
   checkWinner(human, computer) {
-    // if (human == computer){
-    //   console.log('tie')
-    //   return
-    // }
     if (human === "paper") {
       if (computer === "rock") {
         console.log('human paper wins');
@@ -47,6 +43,24 @@ class Game {
             console.log("human rock wins");
         }
       }
+    // if (human === "rock") {
+    //   if (computer === "paper") {
+    //     console.log("computer paper wins");
+    //     } else if (computer === "scissor") {
+    //         console.log("human rock wins");
+    //     }
+    //   }
+    // if (human === "rock") {
+    //   if (computer === "paper") {
+    //     console.log("computer paper wins");
+    //     } else if (computer === "scissor") {
+    //         console.log("human rock wins");
+    //     }
+    //   }  
+    // fighter1
+    // figher2
+    // console.log('human: ', human)
+    // console.log('ocmputer: ', computer);
     }
   
   gameType(event) {
