@@ -94,7 +94,7 @@ function renderWinner(winner, loser) {
 function renderDraw(human, computer) {
   // var winner = 'this is a long strring'
   //remove winner variable and replace parameter for this function
-  console.log('renderdraw function invoked');
+  // console.log('renderdraw function invoked');
   mainSection.innerHTML = `
   <p id='winnerTag'>It's a draw!</p>
   <section class="winner-section" id="winnerSection">

@@ -16,7 +16,7 @@ class Game {
   
   checkDraw(human, computer) {
     if (human == computer){
-      console.log('tie')
+      // console.log('tie')
       renderDraw(human, computer)
     return
     }
