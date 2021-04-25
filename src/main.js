@@ -96,9 +96,6 @@ function renderWinner(winner, loser) {
 }
 
 function renderDraw(human, computer) {
-  // var winner = 'this is a long strring'
-  //remove winner variable and replace parameter for this function
-  // console.log('renderdraw function invoked');
   mainSection.innerHTML = `
   <p id='winnerTag'>It's a draw!</p>
   <section class="winner-section" id="winnerSection">
@@ -125,6 +122,13 @@ function updateWinCount() {
   // game.computer.updateWins()
   // game.computer.retrieveWinsFromStorage()
   // localStorage.getItem('')
+  
+  // var humanWins = localStorage.getItem('humanWinStorage')
+  // var computerWins = localStorage.getItem('computerWinStorage')
+  
+  // console.log('human wins: ', localStorage.getItem('humanWinStorage'))
+  // console.log('computer wins: ', localStorage.getItem('computerWinStorage'))
+
   humanWins.innerText = localStorage.getItem('humanWinStorage')
   computerWins.innerText = localStorage.getItem('computerWinStorage')
 }

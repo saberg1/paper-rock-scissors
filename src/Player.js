@@ -25,7 +25,10 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    updateWinCount()
+
+  var humanWins = localStorage.getItem('humanWinStorage')
+  var computerWins = localStorage.getItem('computerWinStorage')
+    updateWinCount(humanWins, computerWins)
   }
 
   takeTurn(num){
@@ -36,6 +39,7 @@ class Player {
   }
   
   updateWins(){
+
     this.wins++
     this.saveWinsToStorage()
   }
