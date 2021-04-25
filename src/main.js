@@ -62,6 +62,8 @@ function renderClassicGame() {
       <div class='game-token scissor-avatar' id='2'>scissor</div>
     </section>
     `
+
+
 }
 
 function renderDifficultGame() {
@@ -102,11 +104,12 @@ function renderDraw(human, computer) {
   `
 }
 
-function updateWinCount(humanWin, compWin) {
+function updateWinCount() {
   // game.computer.updateWins()
   // game.computer.retrieveWinsFromStorage()
-  humanWins.innerText = humanWin
-  computerWins.innerText = compWin
+  var gameStorage = localStorage.getItem('gameStorage')
+  humanWins.innerText = gameStorage.human.wins
+  computerWins.innerText = gameStorage.computer.wins
 }
 
 function renderChangeGameBtn() {
@@ -144,9 +147,9 @@ function fightGame(event) {
 }
 
 function createGame(){
-  // need to find a way to only create new game if game doesn't exist
+  // if(!game) {
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
-  
+  // }
 }
 
 function getRandomInt(max) {

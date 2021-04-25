@@ -7,18 +7,31 @@ class Player {
   }
 
   saveWinsToStorage() {
-    localStorage.setItem('humanWinStorage', game.human.wins)
-    // console.log('savedtosotrage log: ', this.wins)
-    localStorage.setItem('computerWinStorage', game.computer.wins)
-    // return (humanWins, compWins)
+    localStorage.setItem('gameStorage', JSON.stringify(game))
+    // localStorage.setItem('computerStorage', JSON.stringify(game.computer))
+    this.retrieveWinsFromStorage()
+    }
+  
+  retrieveWinsFromStorage() {
+    var stringStorage = localStorage.getItem('gameStorage');
+    var parsedStorage = JSON.parse(stringStorage)
+    updateWinCount()
+    return parsedStorage
   }
 
-  retrieveWinsFromStorage() {
-    console.log('retreivewin test')
-    var humanWins = localStorage.getItem('humanWinStorage')
-    var compWins = localStorage.getItem('computerWinStorage')
-    updateWinCount(humanWins, compWins)
-  }
+
+
+
+  // saveWinsToStorage() {
+  //   localStorage.setItem('humanWinStorage', game.human.wins)
+  //   // console.log('savedtosotrage log: ', this.wins)
+  //   localStorage.setItem('computerWinStorage', game.computer.wins)
+  //   this.retrieveWinsFromStorage()
+  // }
+
+  // retrieveWinsFromStorage() {
+  //   updateWinCount()
+  // }
 
   takeTurn(num){
     var num = game.type == 'Difficult' ? 5 : 3
