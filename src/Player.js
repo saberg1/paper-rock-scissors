@@ -7,8 +7,8 @@ class Player {
   }
 
   saveWinsToStorage() {
-    //save wins to localstorage
-    
+    localStorage.setItem('humanWinStorage', this.wins)
+    localStorage.setItem('computerWinStorage', this.wins)
   }
 
   retrieveWinsFromStorage() {
@@ -24,5 +24,6 @@ class Player {
   
   updateWins(){
     this.wins++
+    // console.log('updateWins invoked: ', this.wins);
   }
 }

@@ -24,23 +24,23 @@ class Game {
   checkWinner(human, computer) {
     if (human === "paper") {
       if (computer === "rock") {
-        console.log('human paper wins');
+        game.human.updateWins()
       } else if (computer === "scissor"){
-          console.log("computer scissors wins")
+          game.computer.updateWins()
         }
       }
     if (human === "scissor") {      
       if (computer === "rock") {      
-        console.log("computer rock wins");      
+        game.computer.updateWins()    
         } else if (computer === "paper") {
-            console.log("human scissors wins");
+            game.human.updateWins()
         }
       }
     if (human === "rock") {
       if (computer === "paper") {
-        console.log("computer paper wins");
+        game.computer.updateWins()
         } else if (computer === "scissor") {
-            console.log("human rock wins");
+            game.computer.updateWins()
         }
       }
     // if (human === "rock") {
@@ -68,13 +68,7 @@ class Game {
   }
 
   resetBoard() {
-    //reset the games board
     this.type === 'Difficult' ? renderDifficultGame() : renderClassicGame()
-    // if(this.type === 'Difficult'){
-    //   renderDifficultGame()
-    // } else {
-    //   renderClassicGame()
-    // }
   }
 
   fightTheGame(event) {

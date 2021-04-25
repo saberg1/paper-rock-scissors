@@ -44,7 +44,7 @@ function renderMainPage() {
     </section>
     `
   leftAsidediv.innerHTML = ""
-  updateWinCount(2)
+  // updateWinCount(2)
 }
 
 function renderClassicGame() {
@@ -96,8 +96,9 @@ function renderDraw(human, computer) {
 }
 
 
-function updateWinCount(num) {
-  humanWins.innerText = num
+function updateWinCount(humanWin, compWin) {
+  humanWins.innerText = humanWin
+  computerWins.innerText = compWin
 }
 
 function renderChangeGameBtn() {
