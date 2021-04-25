@@ -2,7 +2,7 @@
 Lord Raiden vs Shang Tsung << human v computer
 Jax, Liu Kang, Mileena, Sonya Blade, Sub-Zero << rock,paper,scissors,extra1,extra2 lol
 */
-
+var game;
 
 //Query Selectors
 var mainSection = document.getElementById('mainSection');
@@ -84,7 +84,9 @@ function renderWinner(winner, loser) {
   mainSection.innerHTML = `
   <p id='winnerTag'>${winner} won this round!</p>
   <section class="winner-section" id="winnerSection">
-    <div class='game-token winner-avatar' id='winnerAvatar'>${winner}</div>
+    <div class='game-token winner-avatar' id='winnerAvatar'>
+    <img class='game-avatar'src='assets/${winner}.png'> 
+    </div>
     <div class='game-token loser-avatar' id='winnerAvatar'>${loser}</div>
   </section>
   `
@@ -98,7 +100,9 @@ function renderDraw(human, computer) {
   mainSection.innerHTML = `
   <p id='winnerTag'>It's a draw!</p>
   <section class="winner-section" id="winnerSection">
-    <div class='game-token winner-avatar' id='winnerAvatar'>${human}</div>
+    <div class='game-token winner-avatar' id='winnerAvatar'>
+    <img src='assets/scissor.png'> 
+    </div>
     <div class='game-token loser-avatar' id='winnerAvatar'>${computer}</div>
   </section>
   `
@@ -156,8 +160,10 @@ function fightGame(event) {
 }
 
 function createGame(){
+  // var game;
+  if(!game){
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
-  
+  }
 }
 
 function getRandomInt(max) {
