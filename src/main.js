@@ -131,15 +131,11 @@ function startDifficultGame(event) {
 }
 
 function fightGame(event) {
-  // if(event.target.id === '0' || '1' || '2'){
-  // console.log('fightGame() event: ',event)
-  // console.log('fightGame() event.target.id: ',event.target.id);
   game.fightTheGame(event)
-  // }
 }
 
 function createGame(){
-  // if(game === undefined){
+  // need to find a way to only create new game if game doesn't exist
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
   
 }
