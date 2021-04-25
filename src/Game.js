@@ -25,8 +25,10 @@ class Game {
     if (human === "paper") {
       if (computer === "rock") {
         game.human.updateWins()
+        game.human.retrieveWinsFromStorage()
       } else if (computer === "scissor"){
           game.computer.updateWins()
+          game.computer.retrieveWinsFromStorage()
         }
       }
     if (human === "scissor") {      
@@ -40,7 +42,7 @@ class Game {
       if (computer === "paper") {
         game.computer.updateWins()
         } else if (computer === "scissor") {
-            game.computer.updateWins()
+            game.human.updateWins()
         }
       }
     // if (human === "rock") {

@@ -5,19 +5,19 @@ Jax, Liu Kang, Mileena, Sonya Blade, Sub-Zero << rock,paper,scissors,extra1,extr
 
 
 //Query Selectors
-var mainSection = document.getElementById('mainSection')
-var humanWins = document.getElementById('humanWins')
-var computerWins = document.getElementById('computerWins')
-var leftAsidediv = document.getElementById('leftAsideDiv')
+var mainSection = document.getElementById('mainSection');
+var humanWins = document.getElementById('humanWins');
+var computerWins = document.getElementById('computerWins');
+var leftAsidediv = document.getElementById('leftAsideDiv');
 
-var leftAsideDiv = document.getElementById('leftAsideDiv')
+var leftAsideDiv = document.getElementById('leftAsideDiv');
 
 //Event Listeners
 mainSection.addEventListener('click', function() {
   clicker(event)
-})
-leftAsideDiv.addEventListener('click', renderMainPage)
-window.addEventListener('load', loadPage)
+});
+leftAsideDiv.addEventListener('click', renderMainPage);
+window.addEventListener('load', loadPage);
 //new game will hold wins, and those will reflect/update updateWinCount(num)
 //should that updateWinCount(num) live in
 //pastGame boolean to invoke renderGameBtn() inside Game class
@@ -26,20 +26,20 @@ window.addEventListener('load', loadPage)
 function loadPage() {
   // updateWinCount(num)
   // console.log('rawr')
-  renderMainPage()
+  renderMainPage();
   // renderClassicGame()
   // renderWinner()
   // renderDifficultGame()
   // renderChangeGameBtn()
-}
+};
 
 function clicker(event) {
   // debugger
-  startClassicGame(event)
-  startDifficultGame(event)
-  fightGame(event)
+  startClassicGame(event);
+  startDifficultGame(event);
+  fightGame(event);
   // fightClassicGame(event)
-}
+};
 
 function renderMainPage() {
   mainSection.innerHTML = `        
@@ -50,7 +50,7 @@ function renderMainPage() {
     </section>
     `
   leftAsidediv.innerHTML = ""
-  // updateWinCount(2)
+  updateWinCount()
 }
 
 function renderClassicGame() {
@@ -88,6 +88,7 @@ function renderWinner(winner) {
   </section>
   `
 }
+
 function renderDraw(human, computer) {
   // var winner = 'this is a long strring'
   //remove winner variable and replace parameter for this function
@@ -101,8 +102,9 @@ function renderDraw(human, computer) {
   `
 }
 
-
 function updateWinCount(humanWin, compWin) {
+  // game.computer.updateWins()
+  // game.computer.retrieveWinsFromStorage()
   humanWins.innerText = humanWin
   computerWins.innerText = compWin
 }
