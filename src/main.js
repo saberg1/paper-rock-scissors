@@ -44,7 +44,7 @@ function renderMainPage() {
     <section class="front-page-section" id="frontPageSection">
       <p>Choose your game!</p>
       <div class='classic-div gamebox' id='classicDiv'>CLASSIC</div>
-      <div class='difficult-div gamebox' id='difficultDiv'>DIFFICULT</div>
+      <div class='difficult-div gamebox' id='difficultDiv'>MORTAL KOMBAT</div>
     </section>
     `
   leftAsidediv.innerHTML = ""
@@ -60,12 +60,10 @@ function renderMainPage() {
 function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
-    <section class="classic-section" id="classicSection">
-      <div class='game-token game-avatar' id='0'>
-        
-      </div>
-      <div class='game-token paper-avatar' id='1'>paper</div>
-      <div class='game-token scissor-avatar' id='2'>scissor</div>
+    <section class="classic-section" id="classicSection">      
+      <img src="assets/rock.png" id='0' class='game-token rock-avatar' alt="rock avatar">
+      <img src="assets/paper.png" id='1' class='game-token paper-avatar' alt="paper avatar">
+      <img src="assets/scissor.png" id='2' class='game-token scissor-avatar' alt="scissor avatar">
     </section>
     `
   renderClassicSettings()
@@ -75,11 +73,11 @@ function renderDifficultGame() {
   mainSection.innerHTML = `
   <p>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
-    <div class='game-token game-avatar' id='0'>Jax</div>
-    <div class='game-token paper-avatar' id='1'>Lui Kang</div>
-    <div class='game-token scissor-avatar' id='2'>Mileena</div>
-    <div class='game-token happy-alien-avatar' id='3'>SonyaBlade</div>
-    <div class='game-token happy-lizard-avatar' id='4'>SubZero</div>
+    <img src="assets/Jax.png" id='0' class='game-token jax-avatar' alt="jax avatar">
+    <img src="assets/Lui Kang.png" id='1' class='game-token lui-kang-avatar' alt="lui kang avatar">
+    <img src="assets/mileena.png" id='2' class='game-token mileena-avatar' alt="mileena avatar">
+    <img src="assets/SonyaBlade.png" id='3' class='game-token sonya-blade-avatar' alt="sonya blade avatar">
+    <img src="assets/SubZero.png" id='4' class='game-token sub-zero-avatar' alt="sub zero avatar">
   </section>
   `
   renderKombatSettings()
@@ -156,7 +154,7 @@ function updateWinCount() {
 
 function renderChangeGameBtn() {
   leftAsidediv.innerHTML = `
-  <button type="button"></button>
+  <button type="button">CHANGE GAME?</button>
   `
 }
 
