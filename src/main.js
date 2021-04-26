@@ -16,6 +16,8 @@ var leftAsideDiv = document.getElementById('leftAsideDiv');
 var humanHead = document.getElementById('humanHeading')
 var computerHead = document.getElementById('computerHeading')
 var header = document.getElementById('header')
+var humanAvatar = document.getElementById('humanAvatar');
+var computerAvatar = document.getElementById('computerAvatar');
 
 //Event Listeners
 mainSection.addEventListener('click', function() {
@@ -141,6 +143,8 @@ function renderKombatSettings(){
   computerHead.innerText = 'Shang Tsung'
   humanHead.innerText = 'Lord Raiden'
   header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
+  humanAvatar.innerHTML = '<img src="'
+  computerAvatar.innerHTML = 
 
 }
 
