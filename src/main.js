@@ -10,7 +10,6 @@ var humanWins = document.getElementById('humanWins');
 var computerWins = document.getElementById('computerWins');
 var leftAsidediv = document.getElementById('leftAsideDiv');
 
-var leftAsideDiv = document.getElementById('leftAsideDiv');
 
 /* Mortal Kombat selectors*/
 var humanHead = document.getElementById('humanHeading')
@@ -103,14 +102,14 @@ function renderDifficultGame() {
   mainSection.innerHTML = `
   <p>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
-    <div class='game-token game-avatar' id='0'>rock</div>
-    <div class='game-token paper-avatar' id='1'>paper</div>
-    <div class='game-token scissor-avatar' id='2'>scissor</div>
-    <div class='game-token happy-alien-avatar' id='3'>fighter</div>
-    <div class='game-token happy-lizard-avatar' id='4'>fighter2</div>
+    <div class='game-token game-avatar' id='0'>Jax</div>
+    <div class='game-token paper-avatar' id='1'>Lui Kang</div>
+    <div class='game-token scissor-avatar' id='2'>Mileena</div>
+    <div class='game-token happy-alien-avatar' id='3'>SonyaBlade</div>
+    <div class='game-token happy-lizard-avatar' id='4'>SubZero</div>
   </section>
   `
-  // renderKombatSettings()
+  renderKombatSettings()
 }
 
 function renderWinner(winner, loser) {
