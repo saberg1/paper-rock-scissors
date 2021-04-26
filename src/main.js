@@ -58,6 +58,7 @@ function renderMainPage() {
     `
   leftAsidediv.innerHTML = ""
   updateWinCount()
+  renderClassicSettings()
 }
 // function renderClassicGame() {
 //   mainSection.innerHTML = `
@@ -82,15 +83,20 @@ function renderMainPage() {
 //   </section>
 //   `
 // }
+
+//
 function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
     <section class="classic-section" id="classicSection">
-      <div class='game-token game-avatar' id='0'>rock</div>
+      <div class='game-token game-avatar' id='0'>
+        test
+      </div>
       <div class='game-token paper-avatar' id='1'>paper</div>
       <div class='game-token scissor-avatar' id='2'>scissor</div>
     </section>
     `
+  renderClassicSettings()
 }
 
 function renderDifficultGame() {
@@ -104,7 +110,7 @@ function renderDifficultGame() {
     <div class='game-token happy-lizard-avatar' id='4'>fighter2</div>
   </section>
   `
-  renderKombatSettings()
+  // renderKombatSettings()
 }
 
 function renderWinner(winner, loser) {
@@ -138,14 +144,21 @@ function renderDraw(human, computer) {
   setTimeout(game.resetBoard, 1000)
 }
 
-function renderKombatSettings(){
+function renderKombatSettings() {
   //Lord Raiden vs Shang Tsung
   computerHead.innerText = 'Shang Tsung'
   humanHead.innerText = 'Lord Raiden'
   header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
-  humanAvatar.innerHTML = '<img src="'
-  computerAvatar.innerHTML = 
+  humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">'
+  computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">'
+}
 
+function renderClassicSettings() {
+  computerHead.innerText = 'Computer'
+  humanHead.innerText = 'Human'
+  header.innerHTML = 'Rock, Paper, Scissors'
+  humanAvatar.innerHTML = '<img class="avatar" alt="human avatar" src="assets/Human_Avatar.png">'
+  computerAvatar.innerHTML = '<img class="avatar" alt="computer avatar" src="assets/Computer_Avatar.png">'
 }
 
 // function updateWinCount() {

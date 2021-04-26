@@ -5,14 +5,7 @@ class Game {
     this.type = null;
     this.players = [];// do i still need this array?
     this.avatars = ['rock','paper','scissor', 'fighter1', 'fighter2'];
-    //this.avatars = ['Jax', 'Lui Kang', 'Mileena', 'Sonya Blade', 'Sub-Zero']
-    // this.rules = {
-    //   rock: { scissors: 'wins', paper: 'loses', figher1: 'wins', figher2: 'loses' },
-    //   paper: { scissors: 'loses', rock: 'wins', figher1: 'loses', figher2: 'wins' },
-    //   scissor: { rock: 'loses', paper: 'wins', figher1: 'wins', figher2: 'loses' },
-    //   fighter1: {},
-    //   fighter2: {}
-    // }
+    // this.kombatants = ['Jax', 'Lui Kang', 'Mileena', 'Sonya Blade', 'Sub-Zero'];
   }
   
   checkDraw(human, computer) {
@@ -21,9 +14,8 @@ class Game {
       return
     }
   }
-// checkWinner() stopped working once i added logic for || fighter2/1
+
   checkWinner(human, computer) {
-    // this.checkDraw()
     if (human === "paper") {
       if (computer === "rock"|| computer === "fighter2") {
         game.human.updateWins()
@@ -78,13 +70,12 @@ class Game {
   }
 
   resetBoard() {
-    // console.log(this.type)
     game.type === 'Difficult' ? renderDifficultGame() : renderClassicGame()
   }
 
   fightTheGame(event) {
-    var humanChoice = this.avatars[event.target.id] //human
-    var computerChoice = this.avatars[game.computer.takeTurn()] //computer random
+    var humanChoice = this.avatars[event.target.id]
+    var computerChoice = this.avatars[game.computer.takeTurn()] 
     this.checkWinner(humanChoice, computerChoice)
     this.checkDraw(humanChoice, computerChoice)
   }

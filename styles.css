@@ -60,11 +60,13 @@ button {
 .avatar {
   height: 4rem;
   width: 4rem;
+  z-index: 0;
 }
 
 .game-token {
   height: 4rem;
   width: 4rem;
+  z-index: 1;
 }
 
 .kombat-img {
