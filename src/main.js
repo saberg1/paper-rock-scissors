@@ -36,9 +36,9 @@ function renderMainPage() {
       <div class='difficult-div gamebox' id='difficultDiv'>MORTAL KOMBAT</div>
     </section>
     `
-  leftAsidediv.innerHTML = ""
-  updateWinCount()
-  renderClassicSettings()
+  leftAsidediv.innerHTML = "";
+  updateWinCount();
+  renderClassicSettings();
 }
 
 function renderClassicGame() {
@@ -50,8 +50,8 @@ function renderClassicGame() {
       <img src="assets/scissor.png" id='2' class='game-token scissor-avatar' alt="scissor avatar">
     </section>
     `
-  renderClassicSettings()
-}
+  renderClassicSettings();
+};
 
 function renderDifficultGame() {
   mainSection.innerHTML = `
@@ -64,16 +64,16 @@ function renderDifficultGame() {
     <img src="assets/SubZero.png" id='4' class='game-token sub-zero-avatar' alt="sub zero avatar">
   </section>
   `
-  renderKombatSettings()
-}
+  renderKombatSettings();
+};
 
 function renderKombatSettings() {
-  computerHead.innerText = 'Shang Tsung'
-  humanHead.innerText = 'Lord Raiden'
-  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
-  humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">'
-  computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">'
-}
+  computerHead.innerText = 'Shang Tsung';
+  humanHead.innerText = 'Lord Raiden';
+  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT';
+  humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">';
+  computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">';
+};
 
 function renderWinner(winner, loser) {
   mainSection.innerHTML = `
@@ -87,8 +87,8 @@ function renderWinner(winner, loser) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 1000)
-}
+  setTimeout(game.resetBoard, 3000);
+};
 
 function renderDraw(human, computer) {
   mainSection.innerHTML = `
@@ -102,8 +102,8 @@ function renderDraw(human, computer) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 1000)
-}
+  setTimeout(game.resetBoard, 3000);
+};
 
 function renderClassicSettings() {
   computerHead.innerText = 'Computer'
@@ -111,50 +111,48 @@ function renderClassicSettings() {
   header.innerHTML = 'Rock, Paper, Scissors'
   humanAvatar.innerHTML = '<img class="avatar" alt="human avatar" src="assets/Human_Avatar.png">'
   computerAvatar.innerHTML = '<img class="avatar" alt="computer avatar" src="assets/Computer_Avatar.png">'
-}
+};
 
 function updateWinCount() {
-  humanWins.innerText = JSON.parse(localStorage.getItem('humanWinStorage'))
-  computerWins.innerText = JSON.parse(localStorage.getItem('computerWinStorage'))
-}
+  humanWins.innerText = JSON.parse(localStorage.getItem('humanWinStorage'));
+  computerWins.innerText = JSON.parse(localStorage.getItem('computerWinStorage'));
+};
 
 function renderChangeGameBtn() {
   leftAsidediv.innerHTML = `
-  <button type="button">CHANGE GAME?</button>
+    <button type="button">CHANGE GAME?</button>
   `
-}
+};
 
 function startClassicGame(event) {
-  if(event.target.id === 'classicDiv'){
-    console.log('clicked classic game')
-    renderClassicGame()
-    renderChangeGameBtn()
-    createGame()
-    game.gameType(event)
+  if(event.target.id === 'classicDiv') {
+    renderClassicGame();
+    renderChangeGameBtn();
+    createGame();
+    game.gameType(event);
   }
-}
+};
 
 function startDifficultGame(event) {
-  if(event.target.id === 'difficultDiv'){
-    console.log('clicked difficult game')
-    renderDifficultGame()
-    renderChangeGameBtn()
-    createGame()
-    game.gameType(event)
+  if(event.target.id === 'difficultDiv') {
+    renderDifficultGame();
+    renderChangeGameBtn();
+    createGame();
+    game.gameType(event);
   }
-}
+};
 
 function fightGame(event) {
-  game.fightTheGame(event)
-  updateWinCount()
-}
+  game.fightTheGame(event);
+  updateWinCount();
+};
 
-function createGame(){
-  if(!game){
+function createGame() {
+  if(!game) {
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
   }
-}
+};
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
-}
+};
