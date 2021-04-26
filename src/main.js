@@ -147,9 +147,11 @@ function updateWinCount() {
   
   // console.log('human wins: ', localStorage.getItem('humanWinStorage'))
   // console.log('computer wins: ', localStorage.getItem('computerWinStorage'))
+  // var humanWins = localStorage.getItem('humanWinStorage')
 
-  humanWins.innerText = localStorage.getItem('humanWinStorage')
-  computerWins.innerText = localStorage.getItem('computerWinStorage')
+
+  humanWins.innerText = game.human.wins
+  computerWins.innerText = game.computer.wins
 }
 
 function renderChangeGameBtn() {
@@ -182,8 +184,10 @@ function startDifficultGame(event) {
 
 function fightGame(event) {
   game.fightTheGame(event)
+  updateWinCount()
 }
-
+//something to do with when instantiation of new game, tis not passing wins from localstorage into player obbjects
+//game isn't propertly passing value of wins that are stored in localstorage
 function createGame(){
   if(!game){
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})

@@ -3,7 +3,6 @@ class Game {
     this.human = player.human;
     this.computer = player.computer;
     this.type = null;
-    this.players = [];// do i still need this array?
     this.avatars = ['rock','paper','scissor'];
     this.kombatants = ['Jax', 'Lui Kang', 'Mileena', 'SonyaBlade', 'SubZero'];
   }
@@ -92,7 +91,7 @@ class Game {
       }
     }
   }
-  
+  //MAKE IT DRYER fucntion to differentiate between human win, and computer win
   gameType(event) {
     this.type = event.target.id === 'classicDiv' ? 'Classic' : 'Difficult'
   }
