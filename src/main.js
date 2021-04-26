@@ -1,7 +1,4 @@
-/*
-Lord Raiden vs Shang Tsung << human v computer
-Jax, Liu Kang, Mileena, Sonya Blade, Sub-Zero << rock,paper,scissors,extra1,extra2 lol
-*/
+//Global Variable
 var game;
 
 //Query Selectors
@@ -9,6 +6,7 @@ var mainSection = document.getElementById('mainSection');
 var humanWins = document.getElementById('humanWins');
 var computerWins = document.getElementById('computerWins');
 var leftAsidediv = document.getElementById('leftAsideDiv');
+// var classicSection = document.getElementById('classicSection')
 
 
 /* Mortal Kombat selectors*/
@@ -19,24 +17,18 @@ var humanAvatar = document.getElementById('humanAvatar');
 var computerAvatar = document.getElementById('computerAvatar');
 
 //Event Listeners
-mainSection.addEventListener('click', function() {
+mainSection.addEventListener('click', function(event) {
   clicker(event)
 });
 leftAsideDiv.addEventListener('click', renderMainPage);
 window.addEventListener('load', loadPage);
-//new game will hold wins, and those will reflect/update updateWinCount(num)
-//should that updateWinCount(num) live in
-//pastGame boolean to invoke renderGameBtn() inside Game class
+// classicSection.addEventListener('click', function(){
+//   console.log('testmehoeboi');
+// })
 
 //Event Handlers
 function loadPage() {
-  // updateWinCount(num)
-  // console.log('rawr')
   renderMainPage();
-  // renderClassicGame()
-  // renderWinner()
-  // renderDifficultGame()
-  // renderChangeGameBtn()
 };
 
 function clicker(event) {
@@ -59,37 +51,18 @@ function renderMainPage() {
   updateWinCount()
   renderClassicSettings()
 }
-// function renderClassicGame() {
-//   mainSection.innerHTML = `
-//     <p>Choose your fighter!</p>
-//     <section class="classic-section" id="classicSection">
-//       <div class='game-token game-avatar' id='0'><img class='game-token'src='assets/rock.png'></div>
-//       <div class='game-token paper-avatar' id='1'><img class='game-token'src='assets/paper.png'></div>
-//       <div class='game-token scissor-avatar' id='2'><img class='game-token'src='assets/scissor.png'></div>
-//     </section>
-//     `
-// }
 
-// function renderDifficultGame() {
-//   mainSection.innerHTML = `
-//   <p>Choose your fighter!</p>
-//   <section class="difficult-section" id="difficultSection">
-//     <div class='game-token game-avatar' id='0'><img class='game-token'src='assets/rock.png'></div>
-//     <div class='game-token paper-avatar' id='1'><img class='game-token'src='assets/paper.png'></div>
-//     <div class='game-token scissor-avatar' id='2'><img class='game-token'src='assets/scissor.png'></div>
-//     <div class='game-token happy-alien-avatar' id='3'><img class='game-token'src='assets/fighter1.png'></div>
-//     <div class='game-token happy-lizard-avatar' id='4'><img class='game-token'src='assets/fighter2.png'></div>
-//   </section>
-//   `
-// }
+//what is event listener on and what its trying to match << why is test clicable but not image
+// what i need ot asjust so its clickable when i click the image
+// check event delegation secqueneces << this condtional might be targeting the text and not the div itself?
+//image is the child of the div and not the actually div
 
-//
 function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
     <section class="classic-section" id="classicSection">
       <div class='game-token game-avatar' id='0'>
-        test
+        
       </div>
       <div class='game-token paper-avatar' id='1'>paper</div>
       <div class='game-token scissor-avatar' id='2'>scissor</div>
@@ -113,7 +86,6 @@ function renderDifficultGame() {
 }
 
 function renderWinner(winner, loser) {
-  // console.log(loser)
   mainSection.innerHTML = `
   <p id='winnerTag'>${winner} won this round!</p>
   <section class="winner-section" id="winnerSection">
@@ -144,7 +116,6 @@ function renderDraw(human, computer) {
 }
 
 function renderKombatSettings() {
-  //Lord Raiden vs Shang Tsung
   computerHead.innerText = 'Shang Tsung'
   humanHead.innerText = 'Lord Raiden'
   header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
@@ -190,9 +161,7 @@ function renderChangeGameBtn() {
 }
 
 function startClassicGame(event) {
-  // debugger
   if(event.target.id === 'classicDiv'){
-    // console.log('startClassicGame event: ', event);
     console.log('clicked classic game')
     renderClassicGame()
     renderChangeGameBtn()
@@ -218,7 +187,6 @@ function fightGame(event) {
 }
 
 function createGame(){
-  // var game;
   if(!game){
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
   }

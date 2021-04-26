@@ -5,18 +5,6 @@ class Player {
     this.wins = 0;
     this.isComputer = player === 'computer' ? true : false 
   }
-  // saveWinsToStorage() {
-  //   localStorage.setItem('gameStorage', JSON.stringify(game))
-  //   // localStorage.setItem('computerStorage', JSON.stringify(game.computer))
-  //   this.retrieveWinsFromStorage()
-  //   }
-  
-  // retrieveWinsFromStorage() {
-  //   var stringStorage = localStorage.getItem('gameStorage');
-  //   var parsedStorage = JSON.parse(stringStorage)
-  //   updateWinCount()
-  //   return parsedStorage
-  // }
 
   saveWinsToStorage() {
     localStorage.setItem('humanWinStorage', game.human.wins)
@@ -25,21 +13,20 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-
-  localStorage.getItem('humanWinStorage')
-  localStorage.getItem('computerWinStorage')
+    localStorage.getItem('humanWinStorage')
+    localStorage.getItem('computerWinStorage')
     updateWinCount()
   }
 
   takeTurn(num){
-    var num = game.type == 'Difficult' ? 5 : 3
-    if(this.isComputer){
+  var num = game.type == 'Difficult' ? 5 : 3
+  
+  if(this.isComputer){
       return getRandomInt(num)
     }
   }
   
   updateWins(){
-
     this.wins++
     this.saveWinsToStorage()
   }
