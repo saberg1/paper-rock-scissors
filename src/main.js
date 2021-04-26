@@ -6,13 +6,11 @@ var mainSection = document.getElementById('mainSection');
 var humanWins = document.getElementById('humanWins');
 var computerWins = document.getElementById('computerWins');
 var leftAsidediv = document.getElementById('leftAsideDiv');
-// var classicSection = document.getElementById('classicSection')
 
-
-/* Mortal Kombat selectors*/
-var humanHead = document.getElementById('humanHeading')
-var computerHead = document.getElementById('computerHeading')
-var header = document.getElementById('header')
+// Mortal Kombat selectors
+var humanHead = document.getElementById('humanHeading');
+var computerHead = document.getElementById('computerHeading');
+var header = document.getElementById('header');
 var humanAvatar = document.getElementById('humanAvatar');
 var computerAvatar = document.getElementById('computerAvatar');
 
@@ -21,22 +19,13 @@ mainSection.addEventListener('click', function(event) {
   clicker(event)
 });
 leftAsideDiv.addEventListener('click', renderMainPage);
-window.addEventListener('load', loadPage);
-// classicSection.addEventListener('click', function(){
-//   console.log('testmehoeboi');
-// })
+window.addEventListener('load', renderMainPage);
 
 //Event Handlers
-function loadPage() {
-  renderMainPage();
-};
-
 function clicker(event) {
-  // debugger
   startClassicGame(event);
   startDifficultGame(event);
   fightGame(event);
-  // fightClassicGame(event)
 };
 
 function renderMainPage() {
@@ -51,11 +40,6 @@ function renderMainPage() {
   updateWinCount()
   renderClassicSettings()
 }
-
-//what is event listener on and what its trying to match << why is test clicable but not image
-// what i need ot asjust so its clickable when i click the image
-// check event delegation secqueneces << this condtional might be targeting the text and not the div itself?
-//image is the child of the div and not the actually div
 
 function renderClassicGame() {
   mainSection.innerHTML = `
@@ -81,6 +65,14 @@ function renderDifficultGame() {
   </section>
   `
   renderKombatSettings()
+}
+
+function renderKombatSettings() {
+  computerHead.innerText = 'Shang Tsung'
+  humanHead.innerText = 'Lord Raiden'
+  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
+  humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">'
+  computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">'
 }
 
 function renderWinner(winner, loser) {
@@ -113,14 +105,6 @@ function renderDraw(human, computer) {
   setTimeout(game.resetBoard, 1000)
 }
 
-function renderKombatSettings() {
-  computerHead.innerText = 'Shang Tsung'
-  humanHead.innerText = 'Lord Raiden'
-  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
-  humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">'
-  computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">'
-}
-
 function renderClassicSettings() {
   computerHead.innerText = 'Computer'
   humanHead.innerText = 'Human'
@@ -129,29 +113,9 @@ function renderClassicSettings() {
   computerAvatar.innerHTML = '<img class="avatar" alt="computer avatar" src="assets/Computer_Avatar.png">'
 }
 
-// function updateWinCount() {
-//   // game.computer.updateWins()
-  
-//   var gameStorage = localStorage.getItem('gameStorage')
-//   humanWins.innerText = gameStorage.human.wins
-//   computerWins.innerText = gameStorage.computer.wins
-// }
-
 function updateWinCount() {
-  // game.computer.updateWins()
-  // game.computer.retrieveWinsFromStorage()
-  // localStorage.getItem('')
-  
-  // var humanWins = localStorage.getItem('humanWinStorage')
-  // var computerWins = localStorage.getItem('computerWinStorage')
-  
-  // console.log('human wins: ', localStorage.getItem('humanWinStorage'))
-  // console.log('computer wins: ', localStorage.getItem('computerWinStorage'))
-  // var humanWins = localStorage.getItem('humanWinStorage')
-
-
-  humanWins.innerText = game.human.wins
-  computerWins.innerText = game.computer.wins
+  humanWins.innerText = JSON.parse(localStorage.getItem('humanWinStorage'))
+  computerWins.innerText = JSON.parse(localStorage.getItem('computerWinStorage'))
 }
 
 function renderChangeGameBtn() {
@@ -166,8 +130,7 @@ function startClassicGame(event) {
     renderClassicGame()
     renderChangeGameBtn()
     createGame()
-    game.type = 'Classic'
-    // game.gameType(event)
+    game.gameType(event)
   }
 }
 
@@ -177,8 +140,7 @@ function startDifficultGame(event) {
     renderDifficultGame()
     renderChangeGameBtn()
     createGame()
-    game.type = 'Difficult'
-    // game.gameType(event)
+    game.gameType(event)
   }
 }
 
@@ -186,8 +148,7 @@ function fightGame(event) {
   game.fightTheGame(event)
   updateWinCount()
 }
-//something to do with when instantiation of new game, tis not passing wins from localstorage into player obbjects
-//game isn't propertly passing value of wins that are stored in localstorage
+
 function createGame(){
   if(!game){
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
