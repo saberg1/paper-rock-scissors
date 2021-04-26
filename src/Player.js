@@ -17,17 +17,17 @@ class Player {
   //   updateWinCount()
   //   return parsedStorage
   // }
+
   saveWinsToStorage() {
     localStorage.setItem('humanWinStorage', game.human.wins)
-    // console.log('savedtosotrage log: ', this.wins)
     localStorage.setItem('computerWinStorage', game.computer.wins)
     this.retrieveWinsFromStorage()
   }
 
   retrieveWinsFromStorage() {
 
-  // var humanWins = localStorage.getItem('humanWinStorage')
-  // var computerWins = localStorage.getItem('computerWinStorage')
+  localStorage.getItem('humanWinStorage')
+  localStorage.getItem('computerWinStorage')
     updateWinCount()
   }
 
@@ -35,7 +35,7 @@ class Player {
     var num = game.type == 'Difficult' ? 5 : 3
     if(this.isComputer){
       return getRandomInt(num)
-    } 
+    }
   }
   
   updateWins(){

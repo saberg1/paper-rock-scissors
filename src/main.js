@@ -12,6 +12,11 @@ var leftAsidediv = document.getElementById('leftAsideDiv');
 
 var leftAsideDiv = document.getElementById('leftAsideDiv');
 
+/* Mortal Kombat selectors*/
+var humanHead = document.getElementById('humanHeading')
+var computerHead = document.getElementById('computerHeading')
+var header = document.getElementById('header')
+
 //Event Listeners
 mainSection.addEventListener('click', function() {
   clicker(event)
@@ -52,7 +57,29 @@ function renderMainPage() {
   leftAsidediv.innerHTML = ""
   updateWinCount()
 }
+// function renderClassicGame() {
+//   mainSection.innerHTML = `
+//     <p>Choose your fighter!</p>
+//     <section class="classic-section" id="classicSection">
+//       <div class='game-token game-avatar' id='0'><img class='game-token'src='assets/rock.png'></div>
+//       <div class='game-token paper-avatar' id='1'><img class='game-token'src='assets/paper.png'></div>
+//       <div class='game-token scissor-avatar' id='2'><img class='game-token'src='assets/scissor.png'></div>
+//     </section>
+//     `
+// }
 
+// function renderDifficultGame() {
+//   mainSection.innerHTML = `
+//   <p>Choose your fighter!</p>
+//   <section class="difficult-section" id="difficultSection">
+//     <div class='game-token game-avatar' id='0'><img class='game-token'src='assets/rock.png'></div>
+//     <div class='game-token paper-avatar' id='1'><img class='game-token'src='assets/paper.png'></div>
+//     <div class='game-token scissor-avatar' id='2'><img class='game-token'src='assets/scissor.png'></div>
+//     <div class='game-token happy-alien-avatar' id='3'><img class='game-token'src='assets/fighter1.png'></div>
+//     <div class='game-token happy-lizard-avatar' id='4'><img class='game-token'src='assets/fighter2.png'></div>
+//   </section>
+//   `
+// }
 function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
@@ -62,8 +89,6 @@ function renderClassicGame() {
       <div class='game-token scissor-avatar' id='2'>scissor</div>
     </section>
     `
-
-
 }
 
 function renderDifficultGame() {
@@ -77,6 +102,7 @@ function renderDifficultGame() {
     <div class='game-token happy-lizard-avatar' id='4'>fighter2</div>
   </section>
   `
+  renderKombatSettings()
 }
 
 function renderWinner(winner, loser) {
@@ -92,7 +118,7 @@ function renderWinner(winner, loser) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 3000)
+  setTimeout(game.resetBoard, 1000)
 }
 
 function renderDraw(human, computer) {
@@ -107,7 +133,15 @@ function renderDraw(human, computer) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 3000)
+  setTimeout(game.resetBoard, 1000)
+}
+
+function renderKombatSettings(){
+  //Lord Raiden vs Shang Tsung
+  computerHead.innerText = 'Shang Tsung'
+  humanHead.innerText = 'Lord Raiden'
+  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT'
+
 }
 
 // function updateWinCount() {

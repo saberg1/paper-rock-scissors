@@ -5,6 +5,7 @@ class Game {
     this.type = null;
     this.players = [];// do i still need this array?
     this.avatars = ['rock','paper','scissor', 'fighter1', 'fighter2'];
+    //this.avatars = ['Jax', 'Lui Kang', 'Mileena', 'Sonya Blade', 'Sub-Zero']
     // this.rules = {
     //   rock: { scissors: 'wins', paper: 'loses', figher1: 'wins', figher2: 'loses' },
     //   paper: { scissors: 'loses', rock: 'wins', figher1: 'loses', figher2: 'wins' },
