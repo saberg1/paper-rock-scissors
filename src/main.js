@@ -32,12 +32,24 @@ function renderMainPage() {
   mainSection.innerHTML = `        
     <section class="front-page-section" id="frontPageSection">
       <p>Choose your game!</p>
-      <div class='classic-div gamebox' id='classicDiv'>CLASSIC</div>
-      <div class='difficult-div gamebox' id='difficultDiv'>MORTAL KOMBAT</div>
+      <div class='gamebox' id='classicDiv'>
+        Classic <br>
+        paper > rock <br>
+        rock > scissor <br>
+        scissor > paper <br>
+      </div>
+      <div class='gamebox' id='difficultDiv'>
+        MORTAL KOMBAT<br>
+        Jax > Lui Kang & Goro<br>
+        Sonya Blade > Jax & Sub-Zero<br>
+        Lui Kang > Sonya Blade & Sub-Zero<br>
+        Sub-Zero > Jax & Goro<br>
+        Goro > Sonya Blade & Lui Kang<br>
+      </div>
     </section>
     `
   leftAsidediv.innerHTML = "";
-  updateWinCount();
+  updateWinCount(); // issue with 0 showing
   renderClassicSettings();
 }
 
@@ -53,13 +65,22 @@ function renderClassicGame() {
   renderClassicSettings();
 };
 
+function renderClassicSettings() {
+  document.body.style.backgroundImage = ""
+  computerHead.innerText = 'Computer'
+  humanHead.innerText = 'Human'
+  header.innerHTML = 'Rock, Paper, Scissors'
+  humanAvatar.innerHTML = '<img class="avatar" alt="human avatar" src="assets/Human_Avatar.png">'
+  computerAvatar.innerHTML = '<img class="avatar" alt="computer avatar" src="assets/Computer_Avatar.png">'
+};
+
 function renderDifficultGame() {
   mainSection.innerHTML = `
   <p class='difficultText'>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
     <img src="assets/Jax.png" id='0' class='game-token jax-avatar' alt="jax avatar">
     <img src="assets/Lui Kang.png" id='1' class='game-token lui-kang-avatar' alt="lui kang avatar">
-    <img src="assets/mileena.png" id='2' class='game-token mileena-avatar' alt="mileena avatar">
+    <img src="assets/Goro.png" id='2' class='game-token Goro-avatar' alt="Goro avatar">
     <img src="assets/SonyaBlade.png" id='3' class='game-token sonya-blade-avatar' alt="sonya blade avatar">
     <img src="assets/SubZero.png" id='4' class='game-token sub-zero-avatar' alt="sub zero avatar">
   </section>
@@ -68,9 +89,9 @@ function renderDifficultGame() {
 };
 
 function renderKombatSettings() {
-  document.body.style.backgroundImage = "url('assets/mkbackground2.png')"
+  // document.body.style.backgroundImage = "url('assets/mkbackground2.png')"
   // background-image: url("assets/mkbackground2.png");
-  // background-size: 100% 100%;
+  // background-size = "100% 100%";
   computerHead.innerHTML = 'Shang Tsung';
   humanHead.innerText = 'Lord Raiden';
   header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT';
@@ -93,6 +114,21 @@ function renderWinner(winner, loser) {
   setTimeout(game.resetBoard, 3000);
 };
 
+// function renderKombatWinner(winner, loser) {
+//   mainSection.innerHTML = `
+//   <p id='winnerTag'>${winner} won this round!</p>
+//   <section class="winner-section" id="winnerSection">
+//     <div class='game-token winner-avatar' id='winnerAvatar'>
+//       <img class='game-token'src='assets/${winner}.png'> 
+//     </div>
+//     <div class='game-token loser-avatar' id='winnerAvatar'>
+//       <img class='game-token'src='assets/${loser}.png'>
+//     </div>
+//   </section>
+//   `
+//   setTimeout(game.resetBoard, 3000);
+// };
+
 function renderDraw(human, computer) {
   mainSection.innerHTML = `
   <p id='winnerTag'>It's a draw!</p>
@@ -108,16 +144,9 @@ function renderDraw(human, computer) {
   setTimeout(game.resetBoard, 3000);
 };
 
-function renderClassicSettings() {
-  document.body.style.backgroundImage = ""
-  computerHead.innerText = 'Computer'
-  humanHead.innerText = 'Human'
-  header.innerHTML = 'Rock, Paper, Scissors'
-  humanAvatar.innerHTML = '<img class="avatar" alt="human avatar" src="assets/Human_Avatar.png">'
-  computerAvatar.innerHTML = '<img class="avatar" alt="computer avatar" src="assets/Computer_Avatar.png">'
-};
-
 function updateWinCount() {
+
+  // ternary to equal 0 or jspnpasre
   humanWins.innerText = JSON.parse(localStorage.getItem('humanWinStorage'));
   computerWins.innerText = JSON.parse(localStorage.getItem('computerWinStorage'));
 };

@@ -2,7 +2,7 @@ class Player {
   constructor(player, token) {
     this.player = player;
     this.token = token;
-    this.wins = this.retrieveWinsFromStorage() || 0;
+    this.wins = localStorage.length === 0 ? 0 : this.retrieveWinsFromStorage();
     this.isComputer = player === 'computer' ? true : false;
   };
 

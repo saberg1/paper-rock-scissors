@@ -4,7 +4,7 @@ class Game {
     this.computer = player.computer;
     this.type = null;
     this.avatars = ['rock','paper','scissor'];
-    this.kombatants = ['Jax', 'Lui Kang', 'Mileena', 'SonyaBlade', 'SubZero'];
+    this.kombatants = ['Jax', 'Lui Kang', 'Goro', 'SonyaBlade', 'SubZero'];
   }
   
   checkDraw(human, computer) {
@@ -16,7 +16,7 @@ class Game {
 
   checkKombatWinner(human, computer) {
     if (human === "Jax") {
-      if (computer === "Lui Kang"|| computer === "Mileena") {
+      if (computer === "Lui Kang"|| computer === "Goro") {
         game.human.updateWins();
         renderWinner(human, computer);
       } else if (computer === "SonyaBlade" || computer === "SubZero") {
@@ -25,7 +25,7 @@ class Game {
       }
     };
     if (human === "SonyaBlade") {      
-      if (computer === "Lui Kang" || computer === "Mileena") {      
+      if (computer === "Lui Kang" || computer === "Goro") {      
         game.computer.updateWins();
         renderWinner(computer, human);
       } else if (computer === "Jax" || computer === "SubZero") {
@@ -34,7 +34,7 @@ class Game {
       }
     };
     if (human === "Lui Kang") {
-      if (computer === "Jax" || computer === "Mileena") {
+      if (computer === "Jax" || computer === "Goro") {
         game.computer.updateWins();
         renderWinner(computer, human);
       } else if (computer === "SonyaBlade" || computer ==="SubZero") {
@@ -43,7 +43,7 @@ class Game {
       }
     };
     if (human === "SubZero") {
-      if (computer === "Jax" || computer === "Mileena") {
+      if (computer === "Jax" || computer === "Goro") {
         game.human.updateWins();
         renderWinner(human, computer);
       } else if (computer === "SonyaBlade" || computer === "Lui Kang") {
@@ -51,7 +51,7 @@ class Game {
           renderWinner(computer, human);
       }
     };
-    if (human === "Mileena") {
+    if (human === "Goro") {
       if (computer === "SonyaBlade" || computer === "Lui Kang") {
         game.human.updateWins()
         renderWinner(human, computer)
