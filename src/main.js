@@ -6,6 +6,7 @@ var mainSection = document.getElementById('mainSection');
 var humanWins = document.getElementById('humanWins');
 var computerWins = document.getElementById('computerWins');
 var leftAsidediv = document.getElementById('leftAsideDiv');
+var frontSection = document.getElementById('frontPageSection')
 
 // Mortal Kombat selectors
 var humanHead = document.getElementById('humanHeading');
@@ -130,8 +131,16 @@ function renderDraw(human, computer) {
 };
 
 function updateWinCount() {
-  humanWins.innerText = localStorage.length === 0 ? 0 : JSON.parse(localStorage.getItem('humanWinStorage'));
-  computerWins.innerText = localStorage.length === 0 ? 0 : JSON.parse(localStorage.getItem('computerWinStorage'));
+  if(game === undefined || !localStorage.humanWinStorage) {
+    humanWins.innerText = 0
+  } else {
+    humanWins.innerText = JSON.parse(localStorage.getItem('humanWinStorage'));
+  }
+  if(game === undefined || !localStorage.computerWinStorage) {
+    computerWins.innerText = 0
+  } else {
+    computerWins.innerText = JSON.parse(localStorage.getItem('computerWinStorage'));
+  }
 };
 
 function renderChangeGameBtn() {
