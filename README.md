@@ -1,6 +1,6 @@
 ## Title: Rock-Paper-Scissors
 
-A [Front-End Project] by: [Steven Berg](https://github.com/saberg1)
+A Front-End Project by: [Steven Berg](https://github.com/saberg1)
 
 * Project Manager: [Heather Faerber](https://github.com/hfaerber)
 
