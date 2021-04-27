@@ -2,19 +2,31 @@
   border: 2px red solid;
 }
 
+/* DOCUMENT */
 body {
+
+}
+
+main {
   display: flex;
   justify-content: space-between;
   height: 100vh;
   width: 100vw;
   margin: 0;
-  /* background-image: url("assets/mkbackground2.png");
-  background-size: 100% 100%; */
+  background-color: palevioletred;
+  color: white;
 }
 
+/* CENTER PAGE */
 header {
   display: flex;
   justify-content: center;
+  height: 6.5rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  /* font-weight: bold; */
 }
 
 .main-section {    
@@ -31,28 +43,37 @@ header {
   display: flex;
 }
 
-.difficult-section,
-.classic-section,
-.gamebox:hover {
-  cursor: pointer;
-}
-
-.gamebox:hover {
-  background-color: green;
-}
-
-
 .front-page-section{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.gamebox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14rem;
+  width: 14rem;
+}
+
+.game-token {
+  height: 4rem;
+  width: 4rem;
+}
+
+.kombat-img {
+  height: 26px;
+}
+
+/* ASIDES */
+
 aside {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 8rem;
+  background-color: rebeccapurple;
 }
 
 .left-aside-div {
@@ -74,26 +95,19 @@ button {
   /* background-color: green; */
 }
 
-.gamebox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 14rem;
-  width: 14rem;
-}
-
 .avatar {
   height: 4rem;
   width: 4rem;
   z-index: 0;
 }
 
-.game-token {
-  height: 4rem;
-  width: 4rem;
-  z-index: 1;
+/* PSUEDO CLASSES */
+.gamebox:hover {
+  background-color: green;
 }
 
-.kombat-img {
-  height: 26px;
+.difficult-section,
+.classic-section,
+.gamebox:hover {
+  cursor: pointer;
 }
