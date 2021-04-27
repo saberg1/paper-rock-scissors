@@ -29,10 +29,6 @@ function eventDelegator(event) {
   updateGameType(event)
 };
 
-function hide() {
-  kombatMode.classList.remove("hidden")
-}
-
 function renderMainPage() {
   mainSection.innerHTML = `        
     <section class="front-page-section" id="frontPageSection">
