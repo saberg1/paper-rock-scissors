@@ -3,84 +3,114 @@ class Game {
     this.human = player.human;
     this.computer = player.computer;
     this.type = null;
-    this.players = [];// do i still need this array?
-    this.avatars = ['rock','paper','scissor', 'fighter1', 'fighter2'];
-    this.rules = {
-      rock: { scissors: 'wins', paper: 'loses' },
-      paper: { scissors: 'loses', rock: 'wins' },
-      scissor: { rock: 'loses', paper: 'wins' },
-      // fighter1: {},
-      // fighter2: {}
-    }
+    this.avatars = ['Rock','Paper','Scissor'];
+    this.kombatants = ['Jax', 'Lui Kang', 'Goro', 'SonyaBlade', 'SubZero'];
   }
   
   checkDraw(human, computer) {
-    if (human == computer){
-      console.log('tie')
+    if (human === computer){
+      renderDraw(human, computer);
       return
     }
-  }
+  };
 
-  checkWinner(human, computer) {
-    if (human === "paper") {
-      if (computer === "rock") {
-        console.log('human paper wins');
-      } else if (computer === "scissor"){
-          console.log("computer scissors wins")
-        }
+  checkKombatWinner(human, computer) {
+    if (human === "Jax") {
+      if (computer === "Lui Kang"|| computer === "Goro") {
+        game.human.updateWins();
+        renderWinner(human, computer);
+      } else if (computer === "SonyaBlade" || computer === "SubZero") {
+          game.computer.updateWins();
+          renderWinner(computer, human);
       }
-    if (human === "scissor") {      
-      if (computer === "rock") {      
-        console.log("computer rock wins");      
-        } else if (computer === "paper") {
-            console.log("human scissors wins");
-        }
+    };
+    if (human === "SonyaBlade") {      
+      if (computer === "Lui Kang" || computer === "Goro") {      
+        game.computer.updateWins();
+        renderWinner(computer, human);
+      } else if (computer === "Jax" || computer === "SubZero") {
+          game.human.updateWins();
+          renderWinner(human, computer);
       }
-    if (human === "rock") {
-      if (computer === "paper") {
-        console.log("computer paper wins");
-        } else if (computer === "scissor") {
-            console.log("human rock wins");
-        }
+    };
+    if (human === "Lui Kang") {
+      if (computer === "Jax" || computer === "Goro") {
+        game.computer.updateWins();
+        renderWinner(computer, human);
+      } else if (computer === "SonyaBlade" || computer ==="SubZero") {
+          game.human.updateWins();
+          renderWinner(human, computer);
       }
-    // if (human === "rock") {
-    //   if (computer === "paper") {
-    //     console.log("computer paper wins");
-    //     } else if (computer === "scissor") {
-    //         console.log("human rock wins");
-    //     }
-    //   }
-    // if (human === "rock") {
-    //   if (computer === "paper") {
-    //     console.log("computer paper wins");
-    //     } else if (computer === "scissor") {
-    //         console.log("human rock wins");
-    //     }
-    //   }  
-    // fighter1
-    // figher2
-    // console.log('human: ', human)
-    // console.log('ocmputer: ', computer);
+    };
+    if (human === "SubZero") {
+      if (computer === "Jax" || computer === "Goro") {
+        game.human.updateWins();
+        renderWinner(human, computer);
+      } else if (computer === "SonyaBlade" || computer === "Lui Kang") {
+          game.computer.updateWins();
+          renderWinner(computer, human);
+      }
+    };
+    if (human === "Goro") {
+      if (computer === "SonyaBlade" || computer === "Lui Kang") {
+        game.human.updateWins()
+        renderWinner(human, computer)
+      } else if (computer === "SubZero" || computer === 'Jax') {
+          game.computer.updateWins();
+          renderWinner(computer, human);
+      }
     }
-  
-  gameType(event) {
-    this.type = event.target.id === 'classicDiv' ? 'Classic' : 'Difficult'
   }
+  
+  checkWinner(human, computer) {
+    if (human === "Paper") {
+      if (computer === "Rock") {
+        game.human.updateWins();
+        renderWinner(human, computer);
+      } else if (computer === "Scissor"){
+          game.computer.updateWins();
+          renderWinner(computer, human);
+      }
+    };
+    if (human === "Scissor") {      
+      if (computer === "Rock") {      
+        game.computer.updateWins();
+        renderWinner(computer, human);
+      } else if (computer === "Paper") {
+          game.human.updateWins()
+          renderWinner(human, computer)
+      }
+    };
+    if (human === "Rock") {
+      if (computer === "Paper") {
+        game.computer.updateWins();
+        renderWinner(computer, human);
+      } else if (computer === "Scissor") {
+          game.human.updateWins();
+          renderWinner(human, computer);
+      }
+    };
+  };
+
+  gameType(event) {
+    this.type = event.target.id === 'classicDiv' ? 'Classic' : 'Difficult';
+  };
 
   resetBoard() {
-    //reset the games board
-    this.type === 'Difficult' ? renderDifficultGame() : renderClassicGame()
-    // if(this.type === 'Difficult'){
-    //   renderDifficultGame()
-    // } else {
-    //   renderClassicGame()
-    // }
-  }
+    game.type === 'Difficult' ? renderDifficultGame() : renderClassicGame();
+  };
 
   fightTheGame(event) {
-    var humanChoice = this.avatars[event.target.id] //human
-    var computerChoice = this.avatars[game.computer.takeTurn()] //computer random
-    this.checkWinner(humanChoice, computerChoice)
-    this.checkDraw(humanChoice, computerChoice)
-  }
-}
+    if(this.type === 'Classic') {
+      var humanChoice = this.avatars[event.target.id];
+      var computerChoice = this.avatars[game.computer.takeTurn()];
+      this.checkDraw(humanChoice, computerChoice);
+      this.checkWinner(humanChoice, computerChoice);
+    } else {
+      var humanChoice = this.kombatants[event.target.id];
+      var computerChoice = this.kombatants[game.computer.takeTurn()];
+      this.checkDraw(humanChoice, computerChoice);
+      this.checkKombatWinner(humanChoice, computerChoice);
+    }
+  };
+};

@@ -1,145 +1,184 @@
-//Query Selectors
-var mainSection = document.getElementById('mainSection')
-var humanWins = document.getElementById('humanWins')
-var computerWins = document.getElementById('computerWins')
-var leftAsidediv = document.getElementById('leftAsideDiv')
+//Global Variable
+var game;
 
-var leftAsideDiv = document.getElementById('leftAsideDiv')
+//Query Selectors
+var mainSection = document.getElementById('mainSection');
+var humanWins = document.getElementById('humanWins');
+var computerWins = document.getElementById('computerWins');
+var leftAsidediv = document.getElementById('leftAsideDiv');
+
+// Mortal Kombat selectors
+var humanHead = document.getElementById('humanHeading');
+var computerHead = document.getElementById('computerHeading');
+var header = document.getElementById('header');
+var humanAvatar = document.getElementById('humanAvatar');
+var computerAvatar = document.getElementById('computerAvatar');
 
 //Event Listeners
-mainSection.addEventListener('click', function() {
-  clicker(event)
-})
-leftAsideDiv.addEventListener('click', renderMainPage)
-window.addEventListener('load', loadPage)
-//new game will hold wins, and those will reflect/update updateWinCount(num)
-//should that updateWinCount(num) live in
-//pastGame boolean to invoke renderGameBtn() inside Game class
+mainSection.addEventListener('click', function(event) {
+  eventDelegator(event)
+});
+leftAsideDiv.addEventListener('click', renderMainPage);
+window.addEventListener('load', renderMainPage);
 
 //Event Handlers
-function loadPage() {
-  // updateWinCount(num)
-  // console.log('rawr')
-  renderMainPage()
-  // renderClassicGame()
-  // renderWinner()
-  // renderDifficultGame()
-  // renderChangeGameBtn()
-}
+function eventDelegator(event) {
+  startClassicGame(event);
+  startDifficultGame(event);
+  fightGame(event);
+  updateGameType(event)
+};
 
-function clicker(event) {
-  // debugger
-  startClassicGame(event)
-  startDifficultGame(event)
-  fightGame(event)
-  // fightClassicGame(event)
+function hide() {
+  kombatMode.classList.remove("hidden")
 }
 
 function renderMainPage() {
   mainSection.innerHTML = `        
     <section class="front-page-section" id="frontPageSection">
       <p>Choose your game!</p>
-      <div class='classic-div gamebox' id='classicDiv'>CLASSIC</div>
-      <div class='difficult-div gamebox' id='difficultDiv'>DIFFICULT</div>
+      <div class='gamebox classicBox' id='classicDiv'>
+        <p class='game-box-p'>✂️Classic🪨 </p>
+        paper > rock <br>
+        rock > scissor <br>
+        scissor > paper <br>
+      </div>
+      <div class='gamebox kombat-box' id='difficultDiv'>
+        <p class='game-box-p'>MORTAL KOMBAT</p>
+        Jax > Lui Kang & Goro<br>
+        Sonya Blade > Jax & Sub-Zero<br>
+        Lui Kang > Sonya Blade & Sub-Zero<br>
+        Sub-Zero > Jax & Goro<br>
+        Goro > Sonya Blade & Lui Kang<br>
+      </div>
     </section>
     `
-  leftAsidediv.innerHTML = ""
-  updateWinCount(2)
+  leftAsidediv.innerHTML = "";
+  updateWinCount();
+  renderClassicSettings();
 }
 
 function renderClassicGame() {
   mainSection.innerHTML = `
     <p>Choose your fighter!</p>
-    <section class="classic-section" id="classicSection">
-      <div class='game-token game-avatar' id='0'>rock</div>
-      <div class='game-token paper-avatar' id='1'>paper</div>
-      <div class='game-token scissor-avatar' id='2'>scissor</div>
+    <section class="classic-section" id="classicSection">      
+      <img src="assets/rock.png" id='0' class='game-token rock-avatar' alt="rock avatar">
+      <img src="assets/paper.png" id='1' class='game-token paper-avatar' alt="paper avatar">
+      <img src="assets/scissor.png" id='2' class='game-token scissor-avatar' alt="scissor avatar">
     </section>
     `
-}
+  renderClassicSettings();
+  renderChangeGameBtn()
+};
+
+function renderClassicSettings() {
+  document.body.style.backgroundImage = ""
+  computerHead.innerText = 'Computer'
+  humanHead.innerText = 'Human'
+  header.innerHTML = 'Rock, Paper, Scissors'
+  humanAvatar.innerHTML = '<img class="avatar" alt="human avatar" src="assets/Human_Avatar.png">'
+  computerAvatar.innerHTML = '<img class="avatar" alt="computer avatar" src="assets/Computer_Avatar.png">'
+};
 
 function renderDifficultGame() {
   mainSection.innerHTML = `
-  <p>Choose your fighter!</p>
+  <p class='difficultText'>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
-    <div class='game-token game-avatar' id='0'>rock</div>
-    <div class='game-token paper-avatar' id='1'>paper</div>
-    <div class='game-token scissor-avatar' id='2'>scissor</div>
-    <div class='game-token happy-alien-avatar' id='3'>fighter</div>
-    <div class='game-token happy-lizard-avatar' id='4'>fighter2</div>
+    <img src="assets/Jax.png" id='0' class='game-token kombat-avatar' alt="jax avatar">
+    <img src="assets/Lui Kang.png" id='1' class='game-token kombat-avatar' alt="lui kang avatar">
+    <img src="assets/Goro.png" id='2' class='game-token kombat-avatar' alt="Goro avatar">
+    <img src="assets/SonyaBlade.png" id='3' class='game-token kombat-avatar' alt="sonya blade avatar">
+    <img src="assets/SubZero.png" id='4' class='game-token kombat-avatar' alt="sub zero avatar">
   </section>
   `
-}
+  renderKombatSettings();
+  renderChangeGameBtn();
+};
 
-function renderWinner(winner) {
-  var winner = 'this is a long strring'
-  //remove winner variable and replace parameter for this function
+function renderKombatSettings() {
+  computerHead.innerHTML = 'Shang Tsung';
+  humanHead.innerText = 'Lord Raiden';
+  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT';
+  humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">';
+  computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">';
+};
+
+function renderWinner(winner, loser) {
   mainSection.innerHTML = `
   <p id='winnerTag'>${winner} won this round!</p>
-  <section class="winner-section" id="winnerSection">
-    <div class='game-token winner-avatar' id='winnerAvatar'>winner</div>
-    <div class='game-token loser-avatar' id='winnerAvatar'>loser</div>
+  <section class="descision-section" id="descisionSection">
+    <div class='' id='winnerAvatar'>
+      <img class='avatar'src='assets/${winner}.png'> 
+    </div>
+    <div class='' id='winnerAvatar'>
+      <img class='avatar'src='assets/${loser}.png'>
+    </div>
   </section>
   `
-}
+  setTimeout(game.resetBoard, 1500);
+};
+
 function renderDraw(human, computer) {
-  // var winner = 'this is a long strring'
-  //remove winner variable and replace parameter for this function
-  console.log('renderdraw function invoked');
   mainSection.innerHTML = `
   <p id='winnerTag'>It's a draw!</p>
-  <section class="winner-section" id="winnerSection">
-    <div class='game-token winner-avatar' id='winnerAvatar'>${human}</div>
-    <div class='game-token loser-avatar' id='winnerAvatar'>${computer}</div>
+  <section class="descision-section" id="descisionSection">
+    <div class='' id='winnerAvatar'>
+      <img class='avatar'src='assets/${human}.png'>
+    </div>
+    <div class='' id='winnerAvatar'>
+      <img class='avatar'src='assets/${computer}.png'>
+    </div>
   </section>
   `
-}
+  setTimeout(game.resetBoard, 1500);
+};
 
-
-function updateWinCount(num) {
-  humanWins.innerText = num
-}
+function updateWinCount() {
+  humanWins.innerText = localStorage.length === 0 ? 0 : JSON.parse(localStorage.getItem('humanWinStorage'));
+  computerWins.innerText = localStorage.length === 0 ? 0 : JSON.parse(localStorage.getItem('computerWinStorage'));
+};
 
 function renderChangeGameBtn() {
   leftAsidediv.innerHTML = `
-  <button type="button"></button>
+    <button type="button">CHANGE GAME?</button>
   `
-}
+};
 
 function startClassicGame(event) {
-  // debugger
-  if(event.target.id === 'classicDiv'){
-    // console.log('startClassicGame event: ', event);
-    console.log('clicked classic game')
-    renderClassicGame()
-    renderChangeGameBtn()
-    createGame()
-    game.type = 'Classic'
-    // game.gameType(event)
+  if(event.target.id === 'classicDiv') {
+    renderClassicGame();
+    renderChangeGameBtn();
+    createGame();
+    game.gameType(event);
   }
-}
+};
 
 function startDifficultGame(event) {
-  if(event.target.id === 'difficultDiv'){
-    console.log('clicked difficult game')
-    renderDifficultGame()
-    renderChangeGameBtn()
-    createGame()
-    game.type = 'Difficult'
-    // game.gameType(event)
-  }
-}
+  if(event.target.id === 'difficultDiv') {
+    renderDifficultGame();
+    renderChangeGameBtn();
+    createGame();
+    game.gameType(event);
+  };
+};
 
 function fightGame(event) {
-  game.fightTheGame(event)
-}
+  game.fightTheGame(event);
+  updateWinCount();
+};
 
-function createGame(){
-  // need to find a way to only create new game if game doesn't exist
+function createGame() {
+  if(!game) {
   game = new Game({human: new Player('human', '😀'), computer: new Player('computer', '💾')})
-  
-}
+  };
+};
+
+function updateGameType(event) {
+  if(event.target.id === 'Classic' || event.target.id === 'Difficult') {
+    gameType(event)
+  };
+};
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
-}
+};
