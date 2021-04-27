@@ -18,7 +18,17 @@ Rock/Paper/Scissors is a game that lets you put it all on the line! Rock/Paper/S
 
 ## Website Preview - Basic Functionality
 
-[Main Page]<img src="https://ibb.co/NFC0T2X" width="50%" height="200"/>
+## Main Page
+<a href="https://ibb.co/NFC0T2X"><img src="https://i.ibb.co/j8fCJkd/homepage.png" alt="homepage" border="0"></a>
+
+## Classic Mode
+<a href="https://ibb.co/bvTdGvs"><img src="https://i.ibb.co/fNf0TNk/class-start.png" alt="class-start" border="0"></a>
+
+## Kombat Mode
+<a href="https://ibb.co/RDrpJ4k"><img src="https://i.ibb.co/G5Yvr34/kombat-winner.png" alt="kombat-winner" border="0"></a>
+
+## Winner Page
+<a href="https://ibb.co/QH6bXpM"><img src="https://i.ibb.co/jwL6HbD/kombat-start.png" alt="kombat-start" border="0"></a>
 
 ## Functionality
 
@@ -48,7 +58,6 @@ Rock/Paper/Scissors is a game that lets you put it all on the line! Rock/Paper/S
 ## Contributors
 
 * Creators: [Steven Berg](https://github.com/saberg1)
-* 
 * Project Manager: [Heather Faerber](https://github.com/hfaerber)
 
 ## Resources
