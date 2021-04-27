@@ -55,7 +55,7 @@ function renderClassicGame() {
 
 function renderDifficultGame() {
   mainSection.innerHTML = `
-  <p>Choose your fighter!</p>
+  <p class='difficultText'>Choose your fighter!</p>
   <section class="difficult-section" id="difficultSection">
     <img src="assets/Jax.png" id='0' class='game-token jax-avatar' alt="jax avatar">
     <img src="assets/Lui Kang.png" id='1' class='game-token lui-kang-avatar' alt="lui kang avatar">
@@ -68,7 +68,10 @@ function renderDifficultGame() {
 };
 
 function renderKombatSettings() {
-  computerHead.innerText = 'Shang Tsung';
+  document.body.style.backgroundImage = "url('assets/mkbackground2.png')"
+  // background-image: url("assets/mkbackground2.png");
+  // background-size: 100% 100%;
+  computerHead.innerHTML = 'Shang Tsung';
   humanHead.innerText = 'Lord Raiden';
   header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT';
   humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">';
@@ -106,6 +109,7 @@ function renderDraw(human, computer) {
 };
 
 function renderClassicSettings() {
+  document.body.style.backgroundImage = ""
   computerHead.innerText = 'Computer'
   humanHead.innerText = 'Human'
   header.innerHTML = 'Rock, Paper, Scissors'
