@@ -11,6 +11,7 @@ A Front-End Project by: [Steven Berg](https://github.com/saberg1)
 3. [Technologies](#technologies)
 4. [Contributors](#contributors)
 5. [Resources](#resources)
+6. [Directions to Clone](#directions)
 
 ## Overview
 
@@ -47,6 +48,12 @@ Rock/Paper/Scissors is a game that lets you put it all on the line! Rock/Paper/S
 
 * Known Issues/Bugs:
     * None at this time.
+
+## Directions to clone
+* Fork this Repo
+* Clone down to your machine
+* cd into the directory
+* Run open index.html to view in browser
 
 ## Technologies
 
