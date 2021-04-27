@@ -95,7 +95,7 @@ function renderDifficultGame() {
 function renderKombatSettings() {
   computerHead.innerHTML = 'Shang Tsung';
   humanHead.innerText = 'Lord Raiden';
-  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png"> KOMBAT';
+  header.innerHTML = 'MORTAL <img class="kombat-img" src="assets/kombat_symbol.png" alt="mortal kombat symbol"> KOMBAT';
   humanAvatar.innerHTML = '<img class="avatar" src="assets/lord_raiden.png" alt="lord raiden img">';
   computerAvatar.innerHTML = '<img class="avatar" src="assets/shang_tsung.png" alt="shang tsung img">';
 };
@@ -105,10 +105,10 @@ function renderWinner(winner, loser) {
   <p id='winnerTag'>${winner} won this round!</p>
   <section class="descision-section" id="descisionSection">
     <div class='' id='winnerAvatar'>
-      <img class='avatar'src='assets/${winner}.png'> 
+      <img class='avatar'src='assets/${winner}.png' alt="${winner} img"> 
     </div>
     <div class='' id='winnerAvatar'>
-      <img class='avatar'src='assets/${loser}.png'>
+      <img class='avatar'src='assets/${loser}.png' alt="${loser} img">
     </div>
   </section>
   `
@@ -120,10 +120,10 @@ function renderDraw(human, computer) {
   <p id='winnerTag'>It's a draw!</p>
   <section class="descision-section" id="descisionSection">
     <div class='' id='winnerAvatar'>
-      <img class='avatar'src='assets/${human}.png'>
+      <img class='avatar'src='assets/${human}.png' alt="${human} img">
     </div>
     <div class='' id='winnerAvatar'>
-      <img class='avatar'src='assets/${computer}.png'>
+      <img class='avatar'src='assets/${computer}.png' alt="${human} img">
     </div>
   </section>
   `
