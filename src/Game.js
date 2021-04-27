@@ -3,7 +3,7 @@ class Game {
     this.human = player.human;
     this.computer = player.computer;
     this.type = null;
-    this.avatars = ['rock','paper','scissor'];
+    this.avatars = ['Rock','Paper','Scissor'];
     this.kombatants = ['Jax', 'Lui Kang', 'Goro', 'SonyaBlade', 'SubZero'];
   }
   
@@ -63,29 +63,29 @@ class Game {
   }
   
   checkWinner(human, computer) {
-    if (human === "paper") {
-      if (computer === "rock") {
+    if (human === "Paper") {
+      if (computer === "Rock") {
         game.human.updateWins();
         renderWinner(human, computer);
-      } else if (computer === "scissor"){
+      } else if (computer === "Scissor"){
           game.computer.updateWins();
           renderWinner(computer, human);
       }
     };
-    if (human === "scissor") {      
-      if (computer === "rock") {      
+    if (human === "Scissor") {      
+      if (computer === "Rock") {      
         game.computer.updateWins();
         renderWinner(computer, human);
-      } else if (computer === "paper") {
+      } else if (computer === "Paper") {
           game.human.updateWins()
           renderWinner(human, computer)
       }
     };
-    if (human === "rock") {
-      if (computer === "paper") {
+    if (human === "Rock") {
+      if (computer === "Paper") {
         game.computer.updateWins();
         renderWinner(computer, human);
-      } else if (computer === "scissor") {
+      } else if (computer === "Scissor") {
           game.human.updateWins();
           renderWinner(human, computer);
       }
@@ -104,13 +104,11 @@ class Game {
     if(this.type === 'Classic') {
       var humanChoice = this.avatars[event.target.id];
       var computerChoice = this.avatars[game.computer.takeTurn()];
-
       this.checkDraw(humanChoice, computerChoice);
       this.checkWinner(humanChoice, computerChoice);
     } else {
       var humanChoice = this.kombatants[event.target.id];
       var computerChoice = this.kombatants[game.computer.takeTurn()];
-
       this.checkDraw(humanChoice, computerChoice);
       this.checkKombatWinner(humanChoice, computerChoice);
     }

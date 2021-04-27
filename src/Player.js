@@ -2,7 +2,7 @@ class Player {
   constructor(player, token) {
     this.player = player;
     this.token = token;
-    this.wins = localStorage.length === 0 ? 0 : this.retrieveWinsFromStorage();
+    this.wins = this.retrieveWinsFromStorage();
     this.isComputer = player === 'computer' ? true : false;
   };
 
@@ -16,20 +16,17 @@ class Player {
 
   retrieveWinsFromStorage() {
     if(this.player === 'computer'){
-      var compWins = JSON.parse(localStorage.getItem('computerWinStorage'));
-      this.wins = compWins;
-      return compWins;
+      this.wins = JSON.parse(localStorage.getItem('computerWinStorage'));
+      return this.wins;
     };
     if(this.player === 'human') {
-      var humanWins = JSON.parse(localStorage.getItem('humanWinStorage'));
-      this.wins = humanWins;
-      return humanWins;
+      this.wins = JSON.parse(localStorage.getItem('humanWinStorage'));
+      return this.wins;
     };
   };
 
   takeTurn(num){
   var num = game.type == 'Difficult' ? 5 : 3;
-  
   if(this.isComputer){
       return getRandomInt(num);
     };
