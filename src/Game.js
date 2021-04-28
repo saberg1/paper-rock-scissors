@@ -5,11 +5,6 @@ class Game {
     this.type = null;
     this.avatars = ['Rock','Paper','Scissor'];
     this.kombatants = ['Jax', 'Lui Kang', 'Goro', 'SonyaBlade', 'SubZero'];
-    this.rules = {
-      paper: {rock: false, scissor: true},
-      rock: {scissor: true, paper: false},
-      scissor: {rock: false, paper: true}
-    }
   }
   
   checkDraw(human, computer) {
@@ -66,7 +61,7 @@ class Game {
       }
     }
   }
-  //human === game.rules.paper[computer] << check value === true or false? << true human wins/ false computer loses
+
   checkWinner(human, computer) {
     if (human === "Paper") {
       if (computer === "Rock") {
