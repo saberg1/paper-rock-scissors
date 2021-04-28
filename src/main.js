@@ -116,7 +116,7 @@ function renderWinner(winner, loser) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 100);
+  setTimeout(game.resetBoard, 2000);
 };
 
 function renderDraw(human, computer) {
@@ -131,7 +131,7 @@ function renderDraw(human, computer) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 100);
+  setTimeout(game.resetBoard, 2000);
 };
 
 function updateWinCount() {
