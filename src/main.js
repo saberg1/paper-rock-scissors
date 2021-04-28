@@ -20,9 +20,13 @@ mainSection.addEventListener('click', function(event) {
   eventDelegator(event)
 });
 leftAsideDiv.addEventListener('click', renderMainPage);
-window.addEventListener('load', renderMainPage);
+window.addEventListener('load', loadPage);
 
 //Event Handlers
+function loadPage(){
+  updateWinCount();
+  renderMainPage();
+}
 function eventDelegator(event) {
   startClassicGame(event);
   startDifficultGame(event);
@@ -112,7 +116,7 @@ function renderWinner(winner, loser) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 1500);
+  setTimeout(game.resetBoard, 100);
 };
 
 function renderDraw(human, computer) {
@@ -127,16 +131,16 @@ function renderDraw(human, computer) {
     </div>
   </section>
   `
-  setTimeout(game.resetBoard, 1500);
+  setTimeout(game.resetBoard, 100);
 };
 
 function updateWinCount() {
-  if(game === undefined || !localStorage.humanWinStorage) {
+  if(!localStorage.humanWinStorage) {
     humanWins.innerText = 0
   } else {
     humanWins.innerText = JSON.parse(localStorage.getItem('humanWinStorage'));
   }
-  if(game === undefined || !localStorage.computerWinStorage) {
+  if(!localStorage.computerWinStorage) {
     computerWins.innerText = 0
   } else {
     computerWins.innerText = JSON.parse(localStorage.getItem('computerWinStorage'));
